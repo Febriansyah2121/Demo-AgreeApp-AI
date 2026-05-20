@@ -6,6 +6,12 @@
 <title>AgreeApp AI – Smart Agriculture Platform</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
   :root {
     --green-dark: #1B5E20;
     --green-mid: #2E7D32;
@@ -17,24 +23,21 @@
     --card: #ffffff;
     --text-dark: #1e2330;
     --text-gray: #757575;
-    --border: #adadad;
-    --shadow: 0 2px 12px rgba(0,0,0,0.07);
-    --shadow-lg: 0 8px 32px rgba(27,94,32,0.13);
+    --border: #e0e0e0;
+    --shadow: 0 2px 8px rgba(0,0,0,0.05);
     --radius: 16px;
+    --radius-sm: 12px;
     --radius-btn: 99px;
-    --font: 'Plus Jakarta Sans', 'Arial', sans-serif;
+    --font: 'Plus Jakarta Sans', 'Inter', sans-serif;
   }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
     font-family: var(--font);
     background: #e8e8e5;
-    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 0;
+    min-height: 100vh;
   }
 
   .app-shell {
@@ -43,21 +46,37 @@
     min-height: 100vh;
     background: var(--bg);
     position: relative;
-    overflow: hidden;
-    box-shadow: 0 0 60px rgba(0,0,0,0.18);
+    box-shadow: 0 0 40px rgba(0,0,0,0.1);
   }
 
-  .screen { display: none; flex-direction: column; min-height: 100vh; padding-bottom: 72px; }
-  .screen.active { display: flex; }
+  /* Screen Navigation */
+  .screen {
+    display: none;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-bottom: 70px;
+  }
+  .screen.active {
+    display: flex;
+  }
 
-  .scroll-area { flex: 1; overflow-y: auto; padding: 16px; padding-bottom: 24px; }
-  .scroll-area::-webkit-scrollbar { width: 0; }
+  .scroll-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+  }
+  .scroll-area::-webkit-scrollbar {
+    display: none;
+  }
 
+  /* Header */
   .app-header {
-    background: #fff;
-    padding: 16px 16px 12px;
-    border-bottom: 1px solid #f0f0ee;
-    position: sticky; top: 0; z-index: 10;
+    background: white;
+    padding: 16px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
   }
 
   .header-row {
@@ -66,19 +85,28 @@
     justify-content: space-between;
   }
 
-  .header-greeting { font-size: 13px; color: var(--text-gray); }
-  .header-name { font-size: 18px; font-weight: 800; color: var(--text-dark); }
+  .header-greeting {
+    font-size: 13px;
+    color: var(--text-gray);
+  }
+
+  .header-name {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-dark);
+  }
 
   .avatar {
-    width: 42px; height: 42px;
+    width: 42px;
+    height: 42px;
     background: var(--green-dark);
     border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 800;
-    color: #fff;
+    color: white;
   }
 
   .logout-btn {
@@ -88,19 +116,18 @@
     cursor: pointer;
     padding: 8px;
     border-radius: 50%;
-    transition: 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
-  .logout-btn:hover { background: #f0f0f0; }
+  .logout-btn:hover {
+    background: #f0f0f0;
+  }
 
+  /* Cards */
   .card {
     background: var(--card);
     border-radius: var(--radius);
     padding: 16px;
-    box-shadow: var(--shadow);
     margin-bottom: 12px;
+    box-shadow: var(--shadow);
   }
 
   .card-title {
@@ -108,262 +135,649 @@
     font-weight: 600;
     color: var(--text-gray);
     text-transform: uppercase;
-    letter-spacing: 0.6px;
-    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
   }
 
+  /* Hero Card */
   .hero-card {
-    background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 60%, #43A047 100%);
+    background: linear-gradient(135deg, #1B5E20, #2E7D32);
     border-radius: var(--radius);
     padding: 20px;
-    color: #fff;
-    margin-bottom: 12px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
+    color: white;
+    margin-bottom: 16px;
+  }
+  .hero-value {
+    font-size: 36px;
+    font-weight: 800;
+  }
+  .hero-sub {
+    font-size: 12px;
+    opacity: 0.8;
+    margin-top: 8px;
   }
 
-  .hero-value { font-size: 36px; font-weight: 800; letter-spacing: -1px; }
-  .hero-sub { font-size: 12px; opacity: 0.7; margin-top: 4px; }
-
-  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+  /* Stat Grid */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
   .stat-card {
-    background: var(--card);
-    border-radius: var(--radius);
+    background: white;
+    border-radius: var(--radius-sm);
     padding: 14px;
+    text-align: center;
     box-shadow: var(--shadow);
   }
-  .stat-icon { font-size: 22px; margin-bottom: 8px; }
-  .stat-val { font-size: 20px; font-weight: 800; color: var(--text-dark); }
-  .stat-lbl { font-size: 11px; color: var(--text-gray); font-weight: 500; }
+  .stat-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+  .stat-val {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text-dark);
+  }
+  .stat-lbl {
+    font-size: 11px;
+    color: var(--text-gray);
+  }
 
-  .progress-wrap { margin-top: 10px; }
-  .progress-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-gray); margin-bottom: 6px; }
-  .progress-bar { height: 8px; background: #eee; border-radius: 99px; overflow: hidden; }
-  .progress-fill { height: 100%; border-radius: 99px; background: var(--green-mid); }
-  .progress-fill.orange { background: var(--orange); }
+  /* Progress Bar */
+  .progress-wrap {
+    margin-top: 12px;
+  }
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+  .progress-bar {
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--green-mid);
+    border-radius: 99px;
+    width: 0%;
+  }
+  .progress-fill.orange {
+    background: var(--orange);
+  }
 
-  .bar-chart { display: flex; align-items: flex-end; gap: 6px; height: 80px; margin-top: 10px; }
-  .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
-  .bar { width: 100%; border-radius: 6px 6px 0 0; background: var(--green-pale); }
-  .bar.active { background: var(--green-mid); }
-  .bar-lbl { font-size: 10px; color: var(--text-gray); }
+  /* Bar Chart */
+  .bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    height: 80px;
+    margin-top: 12px;
+  }
+  .bar-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .bar {
+    width: 100%;
+    background: var(--green-pale);
+    border-radius: 6px 6px 0 0;
+    height: 0px;
+  }
+  .bar.active {
+    background: var(--green-mid);
+  }
+  .bar-lbl {
+    font-size: 10px;
+    color: var(--text-gray);
+  }
 
+  /* Shipment List */
   .shipment-item {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 13px 0;
-    border-bottom: 1px solid #f5f5f5;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
   }
-  .shipment-item:last-child { border-bottom: none; }
-  .shipment-route { font-size: 14px; font-weight: 700; color: var(--text-dark); }
-  .shipment-meta { font-size: 11px; color: var(--text-gray); margin-top: 2px; }
+  .shipment-item:last-child {
+    border-bottom: none;
+  }
+  .shipment-route {
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .shipment-meta {
+    font-size: 11px;
+    color: var(--text-gray);
+    margin-top: 4px;
+  }
 
-  .badge { display: inline-block; padding: 3px 10px; border-radius: 99px; font-size: 11px; font-weight: 700; }
-  .badge-green { background: var(--green-pale); color: var(--green-dark); }
-  .badge-blue { background: #E3F2FD; color: #1565C0; }
-  .badge-orange { background: var(--orange-light); color: #E65100; }
+  /* Badges */
+  .badge {
+    padding: 4px 10px;
+    border-radius: 99px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .badge-blue {
+    background: #E3F2FD;
+    color: #1565C0;
+  }
+  .badge-green {
+    background: var(--green-pale);
+    color: var(--green-dark);
+  }
+  .badge-orange {
+    background: var(--orange-light);
+    color: #E65100;
+  }
 
+  /* QR Scanner */
   .scanner-box {
-    border: 2.5px dashed var(--orange);
+    border: 2px dashed var(--orange);
     border-radius: var(--radius);
     padding: 32px 16px;
     text-align: center;
-    margin-bottom: 16px;
     background: var(--orange-light);
     cursor: pointer;
+    margin-bottom: 16px;
   }
-  .scanner-icon { font-size: 52px; margin-bottom: 12px; }
+  .scanner-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+  }
   .btn-scan {
     background: var(--orange);
-    color: #fff;
+    color: white;
     border: none;
-    border-radius: var(--radius-btn);
-    padding: 12px 28px;
-    font-weight: 700;
+    padding: 10px 24px;
+    border-radius: 99px;
+    font-weight: 600;
+    margin-top: 12px;
     cursor: pointer;
   }
-  .scan-result { display: none; }
-  .scan-result.show { display: block; }
 
-  .product-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-  .product-img { width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, #C8E6C9, #A5D6A7); display: flex; align-items: center; justify-content: center; font-size: 26px; }
-  .product-name { font-size: 16px; font-weight: 800; }
+  .scan-result {
+    display: none;
+  }
+  .scan-result.show {
+    display: block;
+  }
 
-  .info-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f5f5f5; font-size: 13px; }
-  .info-key { color: var(--text-gray); }
-  .info-val { color: var(--text-dark); font-weight: 600; }
+  .product-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .product-img {
+    width: 50px;
+    height: 50px;
+    background: var(--green-pale);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+  }
+  .product-name {
+    font-size: 16px;
+    font-weight: 800;
+  }
 
-  .price-row { display: flex; gap: 10px; margin-top: 14px; }
-  .price-box { flex: 1; background: var(--green-pale); border-radius: 12px; padding: 12px; text-align: center; }
-  .price-box.orange { background: var(--orange-light); }
-  .price-val { font-size: 15px; font-weight: 800; color: var(--green-dark); margin-top: 4px; }
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .info-key {
+    color: var(--text-gray);
+  }
+  .info-val {
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  .price-row {
+    display: flex;
+    gap: 12px;
+    margin: 12px 0;
+  }
+  .price-box {
+    flex: 1;
+    background: var(--green-pale);
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+  }
+  .price-box.orange {
+    background: var(--orange-light);
+  }
+  .price-val {
+    font-weight: 800;
+    font-size: 16px;
+  }
 
   .blockchain-badge {
     display: flex;
-    align-items: center;
     gap: 8px;
     background: linear-gradient(135deg, #1a237e, #283593);
-    color: #fff;
+    color: white;
+    padding: 12px;
     border-radius: 12px;
-    padding: 12px 14px;
-    margin-top: 14px;
+    margin-top: 12px;
   }
 
-  .forecast-scroll { display: flex; gap: 10px; overflow-x: auto; margin-bottom: 12px; }
-  .forecast-card {
-    min-width: 80px;
-    background: var(--card);
-    border-radius: 14px;
+  /* Profile Styles */
+  .profile-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .profile-avatar {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    margin: 0 auto 12px;
+  }
+  .profile-name {
+    font-size: 20px;
+    font-weight: 800;
+  }
+  .profile-role {
+    font-size: 13px;
+    color: var(--text-gray);
+    margin-top: 4px;
+  }
+
+  .stats-mini {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .stat-mini {
+    background: var(--green-pale);
+    border-radius: 12px;
     padding: 12px;
+    text-align: center;
+  }
+  .stat-mini-value {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--green-dark);
+  }
+  .stat-mini-label {
+    font-size: 10px;
+    color: var(--text-gray);
+  }
+
+  /* Form Styles */
+  .form-group {
+    margin-bottom: 16px;
+  }
+  .form-label {
+    font-size: 13px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .form-input {
+    width: 100%;
+    padding: 12px;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: 14px;
+    font-family: var(--font);
+  }
+  .form-input:focus {
+    outline: none;
+    border-color: var(--green-mid);
+  }
+
+  .btn-edit {
+    background: var(--green-dark);
+    color: white;
+    border: none;
+    border-radius: 99px;
+    padding: 12px;
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+  .btn-save {
+    background: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 99px;
+    padding: 12px;
+    font-weight: 600;
+    width: 48%;
+    cursor: pointer;
+  }
+  .btn-cancel {
+    background: #e0e0e0;
+    color: var(--text-dark);
+    border: none;
+    border-radius: 99px;
+    padding: 12px;
+    font-weight: 600;
+    width: 48%;
+    cursor: pointer;
+  }
+  .edit-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    margin-top: 12px;
+  }
+  .view-mode {
+    display: block;
+  }
+  .edit-mode {
+    display: none;
+  }
+
+  /* Features Grid */
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .feature-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px 16px;
     text-align: center;
     box-shadow: var(--shadow);
   }
-  .forecast-card.today { background: var(--green-mid); color: #fff; }
+  .feature-card-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+  }
+  .feature-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .feature-card-desc {
+    font-size: 12px;
+    color: var(--text-gray);
+    line-height: 1.5;
+  }
 
-  .stock-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
-  .stock-name { font-size: 14px; font-weight: 700; }
+  .detail-card {
+    background: white;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .detail-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 
+  /* Bottom Navigation */
   .bottom-nav {
     position: fixed;
     bottom: 0;
     width: 100%;
     max-width: 480px;
-    background: #fff;
-    border-top: 1px solid #f0f0ee;
+    background: white;
+    border-top: 1px solid var(--border);
     display: flex;
     z-index: 100;
+    padding: 8px 0;
   }
-
   .nav-item {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 10px 4px 8px;
-    cursor: pointer;
     gap: 4px;
     background: none;
     border: none;
+    cursor: pointer;
+    padding: 8px;
   }
-  .nav-icon { font-size: 22px; }
-  .nav-label { font-size: 10px; color: var(--text-gray); font-weight: 600; }
-  .nav-item.active .nav-label { color: var(--green-mid); }
+  .nav-icon {
+    font-size: 22px;
+  }
+  .nav-label {
+    font-size: 10px;
+    color: var(--text-gray);
+    font-weight: 600;
+  }
+  .nav-item.active .nav-label {
+    color: var(--green-mid);
+  }
 
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  .screen.active .card, .screen.active .hero-card { animation: fadeIn 0.35s ease; }
-
-  @media (min-width: 481px) { .app-shell { margin: 0 auto; } }
+  @media (max-width: 480px) {
+    .features-grid {
+      gap: 12px;
+    }
+    .feature-card {
+      padding: 16px 12px;
+    }
+    .feature-card-icon {
+      font-size: 32px;
+    }
+  }
 </style>
 </head>
 <body>
 
 <div class="app-shell">
 
-  <!-- ==================== FARMER DASHBOARD ==================== -->
-  <div class="screen active" id="dashboard-screen">
+  <!-- FARMER SCREENS -->
+  <div class="screen" id="farmer-home">
     <div class="app-header">
       <div class="header-row">
         <div>
-          <div class="header-greeting" id="greetingText">Memuat...</div>
-          <div class="header-name" id="userNameDisplay">Memuat...</div>
+          <div class="header-greeting" id="farmerGreeting">Loading...</div>
+          <div class="header-name" id="farmerName">Loading...</div>
         </div>
-        <div style="display: flex; gap: 12px; align-items: center;">
-          <div class="avatar" id="userAvatar">🌾</div>
-          <button class="logout-btn" onclick="logout()" title="Logout">🚪</button>
+        <div style="display: flex; gap: 12px;">
+          <div class="avatar" id="farmerAvatar">F</div>
+          <button class="logout-btn" onclick="logout()">🚪</button>
         </div>
       </div>
     </div>
-    <div class="scroll-area" id="farmerDashboard">
-      <!-- Konten FARMER akan diisi JavaScript -->
-    </div>
+    <div class="scroll-area" id="farmerDashboard"></div>
   </div>
 
-  <!-- ==================== DISTRIBUTOR DASHBOARD ==================== -->
-  <div class="screen" id="distributor-screen">
+  <div class="screen" id="farmer-features">
     <div class="app-header">
       <div class="header-row">
         <div>
-          <div class="header-greeting" id="greetingTextDist">Memuat...</div>
-          <div class="header-name" id="userNameDisplayDist">Memuat...</div>
+          <div class="header-greeting">Explore Features</div>
+          <div class="header-name">🌾 AI-Powered Tools</div>
         </div>
-        <div style="display: flex; gap: 12px; align-items: center;">
-          <div class="avatar" style="background: var(--orange);" id="userAvatarDist">🚚</div>
-          <button class="logout-btn" onclick="logout()" title="Logout">🚪</button>
-        </div>
+        <button class="logout-btn" onclick="goBackToHome('farmer')">←</button>
       </div>
     </div>
-    <div class="scroll-area" id="distributorDashboard">
-      <!-- Konten DISTRIBUTOR akan diisi JavaScript -->
-    </div>
+    <div class="scroll-area" id="farmerFeatures"></div>
   </div>
 
-  <!-- ==================== CONSUMER DASHBOARD ==================== -->
-  <div class="screen" id="consumer-screen">
+  <div class="screen" id="farmer-profile">
     <div class="app-header">
       <div class="header-row">
         <div>
-          <div class="header-greeting" id="greetingTextCon">Memuat...</div>
-          <div class="header-name" id="userNameDisplayCon">Memuat...</div>
+          <div class="header-greeting">My Profile</div>
+          <div class="header-name" id="farmerProfileName">Loading...</div>
         </div>
-        <div style="display: flex; gap: 12px; align-items: center;">
-          <div class="avatar" style="background: var(--green-light);" id="userAvatarCon">🛒</div>
-          <button class="logout-btn" onclick="logout()" title="Logout">🚪</button>
+        <button class="logout-btn" onclick="goBackToHome('farmer')">←</button>
+      </div>
+    </div>
+    <div class="scroll-area" id="farmerProfileContent"></div>
+  </div>
+
+  <!-- DISTRIBUTOR SCREENS -->
+  <div class="screen" id="distributor-home">
+    <div class="app-header">
+      <div class="header-row">
+        <div>
+          <div class="header-greeting" id="distributorGreeting">Loading...</div>
+          <div class="header-name" id="distributorName">Loading...</div>
+        </div>
+        <div style="display: flex; gap: 12px;">
+          <div class="avatar" style="background: var(--orange);" id="distributorAvatar">D</div>
+          <button class="logout-btn" onclick="logout()">🚪</button>
         </div>
       </div>
     </div>
-    <div class="scroll-area" id="consumerDashboard">
-      <!-- Konten CONSUMER akan diisi JavaScript -->
-    </div>
+    <div class="scroll-area" id="distributorDashboard"></div>
   </div>
 
-  <!-- ==================== BOTTOM NAV ==================== -->
-  <div class="bottom-nav" id="bottomNav">
-    <button class="nav-item active" onclick="showScreenByRole('home')"><span class="nav-icon">🏠</span><span class="nav-label">Home</span></button>
-    <button class="nav-item" onclick="showScreenByRole('features')"><span class="nav-icon">⚙️</span><span class="nav-label">Features</span></button>
-    <button class="nav-item" onclick="showScreenByRole('profile')"><span class="nav-icon">👤</span><span class="nav-label">Profile</span></button>
+  <div class="screen" id="distributor-features">
+    <div class="app-header">
+      <div class="header-row">
+        <div>
+          <div class="header-greeting">Explore Features</div>
+          <div class="header-name">🚚 Logistics Tools</div>
+        </div>
+        <button class="logout-btn" onclick="goBackToHome('distributor')">←</button>
+      </div>
+    </div>
+    <div class="scroll-area" id="distributorFeatures"></div>
+  </div>
+
+  <div class="screen" id="distributor-profile">
+    <div class="app-header">
+      <div class="header-row">
+        <div>
+          <div class="header-greeting">My Profile</div>
+          <div class="header-name" id="distributorProfileName">Loading...</div>
+        </div>
+        <button class="logout-btn" onclick="goBackToHome('distributor')">←</button>
+      </div>
+    </div>
+    <div class="scroll-area" id="distributorProfileContent"></div>
+  </div>
+
+  <!-- CONSUMER SCREENS -->
+  <div class="screen" id="consumer-home">
+    <div class="app-header">
+      <div class="header-row">
+        <div>
+          <div class="header-greeting" id="consumerGreeting">Loading...</div>
+          <div class="header-name" id="consumerName">Loading...</div>
+        </div>
+        <div style="display: flex; gap: 12px;">
+          <div class="avatar" style="background: var(--green-light);" id="consumerAvatar">C</div>
+          <button class="logout-btn" onclick="logout()">🚪</button>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-area" id="consumerDashboard"></div>
+  </div>
+
+  <div class="screen" id="consumer-features">
+    <div class="app-header">
+      <div class="header-row">
+        <div>
+          <div class="header-greeting">Explore Features</div>
+          <div class="header-name">🛒 Consumer Tools</div>
+        </div>
+        <button class="logout-btn" onclick="goBackToHome('consumer')">←</button>
+      </div>
+    </div>
+    <div class="scroll-area" id="consumerFeatures"></div>
+  </div>
+
+  <div class="screen" id="consumer-profile">
+    <div class="app-header">
+      <div class="header-row">
+        <div>
+          <div class="header-greeting">My Profile</div>
+          <div class="header-name" id="consumerProfileName">Loading...</div>
+        </div>
+        <button class="logout-btn" onclick="goBackToHome('consumer')">←</button>
+      </div>
+    </div>
+    <div class="scroll-area" id="consumerProfileContent"></div>
+  </div>
+
+  <!-- BOTTOM NAVIGATION -->
+  <div class="bottom-nav">
+    <button class="nav-item" id="nav-home" onclick="navigateTo('home')">
+      <span class="nav-icon">🏠</span>
+      <span class="nav-label">Home</span>
+    </button>
+    <button class="nav-item" id="nav-features" onclick="navigateTo('features')">
+      <span class="nav-icon">⚙️</span>
+      <span class="nav-label">Features</span>
+    </button>
+    <button class="nav-item" id="nav-profile" onclick="navigateTo('profile')">
+      <span class="nav-icon">👤</span>
+      <span class="nav-label">Profile</span>
+    </button>
   </div>
 </div>
 
 <script>
-// ==================== GET TIME GREETING ====================
-function getTimeGreeting() {
-  const now = new Date();
-  const hours = now.getHours();
-  if (hours >= 5 && hours < 11) return "🌅 Selamat Pagi";
-  if (hours >= 11 && hours < 15) return "☀️ Selamat Siang";
-  if (hours >= 15 && hours < 18) return "🌤️ Selamat Sore";
-  return "🌙 Selamat Malam";
-}
+  // ==================== GET TIME GREETING ====================
+  function getTimeGreeting() {
+    const now = new Date();
+    const hours = now.getHours();
+    if (hours >= 5 && hours < 11) return "🌅 Selamat Pagi";
+    if (hours >= 11 && hours < 15) return "☀️ Selamat Siang";
+    if (hours >= 15 && hours < 18) return "🌤️ Selamat Sore";
+    return "🌙 Selamat Malam";
+  }
 
-// ==================== AMBIL DATA DARI LOCALSTORAGE ====================
-let userEmail = localStorage.getItem('userEmail');
-let userRole = localStorage.getItem('userRole');
-let userName = localStorage.getItem('userName');
+  // ==================== AMBIL DATA DARI LOCALSTORAGE ====================
+  let userEmail = localStorage.getItem('userEmail');
+  let userRole = localStorage.getItem('userRole');
+  let userName = localStorage.getItem('userName');
 
-if (!userEmail || !userRole) {
-  window.location.href = 'login.html';
-}
+  if (!userEmail || !userRole) {
+    window.location.href = 'login.html';
+  }
 
-let displayName = userName;
-if (!displayName && userEmail) {
-  displayName = userEmail.split('@')[0];
-  displayName = displayName.charAt(0).toUpperCase() + displayName.slice(1);
-}
-if (!displayName) displayName = 'User';
+  let displayName = userName;
+  if (!displayName && userEmail) {
+    displayName = userEmail.split('@')[0];
+    displayName = displayName.charAt(0).toUpperCase() + displayName.slice(1);
+  }
+  if (!displayName) displayName = 'User';
 
-const greeting = getTimeGreeting();
+  let profileData = {
+    name: displayName,
+    email: userEmail,
+    phone: '+62 812 3456 7890',
+    location: userRole === 'F' ? 'Jember, East Java' : (userRole === 'D' ? 'East Java' : 'Jakarta, Indonesia')
+  };
 
-// ==================== RENDER DASHBOARD BERDASARKAN ROLE ====================
-function renderDashboard() {
-  if (userRole === 'F') {
-    // TAMPILAN FARMER
-    document.getElementById('greetingText').textContent = greeting + ',';
-    document.getElementById('userNameDisplay').innerHTML = `🌾 ${displayName}`;
-    document.getElementById('userAvatar').textContent = 'F';
-    
+  const greeting = getTimeGreeting();
+
+  // ==================== RENDER FUNCTIONS ====================
+  function renderFarmer() {
+    // Dashboard
+    document.getElementById('farmerGreeting').textContent = greeting + ',';
+    document.getElementById('farmerName').innerHTML = `🌾 ${profileData.name}`;
+    document.getElementById('farmerAvatar').textContent = 'F';
     document.getElementById('farmerDashboard').innerHTML = `
       <div class="hero-card">
         <div class="hero-value">24.7 <span style="font-size:16px;">Tons</span></div>
@@ -376,7 +790,6 @@ function renderDashboard() {
       <div class="card">
         <div class="card-title">🌱 Soil Fertility</div>
         <div class="progress-wrap"><div class="progress-label"><span>Overall Health</span><span>85%</span></div><div class="progress-bar"><div class="progress-fill" style="width:85%"></div></div></div>
-        <div style="margin-top:10px; font-size:12px; color:var(--text-gray)">N: High · P: Medium · K: High</div>
       </div>
       <div class="card">
         <div class="card-title">📦 Current Stock</div>
@@ -388,146 +801,232 @@ function renderDashboard() {
       <div class="card">
         <div class="card-title">📊 Harvest Chart</div>
         <div class="bar-chart">
-          <div class="bar-col"><div class="bar" style="height:42px"></div><div class="bar-lbl">Dec</div></div>
-          <div class="bar-col"><div class="bar" style="height:56px"></div><div class="bar-lbl">Jan</div></div>
-          <div class="bar-col"><div class="bar" style="height:48px"></div><div class="bar-lbl">Feb</div></div>
-          <div class="bar-col"><div class="bar" style="height:66px"></div><div class="bar-lbl">Mar</div></div>
-          <div class="bar-col"><div class="bar" style="height:76px"></div><div class="bar-lbl">Apr</div></div>
-          <div class="bar-col"><div class="bar active" style="height:72px"></div><div class="bar-lbl">May</div></div>
+          <div class="bar-col"><div class="bar" style="height:42px"></div><div class="bar-lbl">Jan</div></div>
+          <div class="bar-col"><div class="bar" style="height:56px"></div><div class="bar-lbl">Feb</div></div>
+          <div class="bar-col"><div class="bar" style="height:48px"></div><div class="bar-lbl">Mar</div></div>
+          <div class="bar-col"><div class="bar" style="height:66px"></div><div class="bar-lbl">Apr</div></div>
+          <div class="bar-col"><div class="bar" style="height:76px"></div><div class="bar-lbl">May</div></div>
+          <div class="bar-col"><div class="bar active" style="height:72px"></div><div class="bar-lbl">Jun</div></div>
         </div>
       </div>
-      <div class="card">
-        <div class="card-title">🤖 AI Recommendation</div>
-        <p style="font-size:13px;">Optimal planting window: <strong>June 2-8</strong>. Rainfall 45mm expected. Ideal for IR64 rice.</p>
-      </div>
     `;
-  } 
-  else if (userRole === 'D') {
-    // TAMPILAN DISTRIBUTOR
-    document.getElementById('greetingTextDist').textContent = greeting + ',';
-    document.getElementById('userNameDisplayDist').innerHTML = `🚚 ${displayName}`;
-    document.getElementById('userAvatarDist').textContent = 'D';
-    
+
+    // Features Page
+    document.getElementById('farmerFeatures').innerHTML = `
+      <div class="hero-card" style="background: linear-gradient(135deg, #1B5E20, #2E7D32);">
+        <div class="hero-value">🤖 AI-Powered</div>
+        <div class="hero-sub">Smart farming tools for better yields</div>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card"><div class="feature-card-icon">🌾</div><div class="feature-card-title">AgriVision</div><div class="feature-card-desc">Weather forecast & soil monitoring in real-time</div></div>
+        <div class="feature-card"><div class="feature-card-icon">📦</div><div class="feature-card-title">StockSense</div><div class="feature-card-desc">AI predicts when stock will run out</div></div>
+        <div class="feature-card"><div class="feature-card-icon">🚚</div><div class="feature-card-title">DistroTrack</div><div class="feature-card-desc">Track shipments from farm to market</div></div>
+        <div class="feature-card"><div class="feature-card-icon">🔍</div><div class="feature-card-title">QR Trace</div><div class="feature-card-desc">Blockchain-based product tracking</div></div>
+      </div>
+      <div class="card"><div class="card-title">📈 AI Insights</div><div class="info-row"><span>Best planting window</span><span class="badge badge-green">June 2-8</span></div><div class="info-row"><span>Expected rainfall</span><span>45mm this week</span></div><div class="info-row"><span>Soil temp</span><span>28°C (ideal)</span></div></div>
+      <div class="card"><div class="card-title">💡 Recommendations</div><div class="info-row"><span>Apply NPK fertilizer</span><span>30kg/ha</span></div><div class="info-row"><span>Pest risk</span><span class="badge badge-orange">High on Wed-Thu</span></div></div>
+    `;
+
+    // Profile
+    renderProfile('farmer');
+  }
+
+  function renderDistributor() {
+    document.getElementById('distributorGreeting').textContent = greeting + ',';
+    document.getElementById('distributorName').innerHTML = `🚚 ${profileData.name}`;
+    document.getElementById('distributorAvatar').textContent = 'D';
     document.getElementById('distributorDashboard').innerHTML = `
       <div class="hero-card" style="background: linear-gradient(135deg, #1565C0, #1976D2);">
         <div class="hero-value">18.4 <span style="font-size:16px;">Tons</span></div>
         <div class="hero-sub">Total Volume Shipped This Month</div>
       </div>
       <div class="stat-grid">
-        <div class="stat-card"><div class="stat-icon">🚛</div><div class="stat-val">8</div><div class="stat-lbl">Active Shipments</div></div>
+        <div class="stat-card"><div class="stat-icon">🚛</div><div class="stat-val">8</div><div class="stat-lbl">Active</div></div>
         <div class="stat-card"><div class="stat-icon">✅</div><div class="stat-val">23</div><div class="stat-lbl">Completed</div></div>
-        <div class="stat-card"><div class="stat-icon">⏰</div><div class="stat-val">91.3%</div><div class="stat-lbl">On-Time Delivery</div></div>
+        <div class="stat-card"><div class="stat-icon">⏰</div><div class="stat-val">91.3%</div><div class="stat-lbl">On-Time</div></div>
         <div class="stat-card"><div class="stat-icon">⚠️</div><div class="stat-val">2</div><div class="stat-lbl">Delayed</div></div>
       </div>
-      <div class="card">
-        <div class="card-title">🚚 Active Shipments</div>
-        <div class="shipment-item"><div><div class="shipment-route">Jember → Surabaya</div><div class="shipment-meta">Rice 800kg · ETA: Today 18:00</div></div><span class="badge badge-blue">In Transit</span></div>
+      <div class="card"><div class="card-title">🚚 Active Shipments</div>
+        <div class="shipment-item"><div><div class="shipment-route">Jember → Surabaya</div><div class="shipment-meta">Rice 800kg · ETA: 18:00</div></div><span class="badge badge-blue">In Transit</span></div>
         <div class="shipment-item"><div><div class="shipment-route">Malang → Gresik</div><div class="shipment-meta">Corn 450kg · Arrived</div></div><span class="badge badge-green">Delivered</span></div>
-        <div class="shipment-item"><div><div class="shipment-route">Bondowoso → Sidoarjo</div><div class="shipment-meta">Mixed 600kg · Delayed 3hrs</div></div><span class="badge badge-orange">Delayed</span></div>
-      </div>
-      <div class="card">
-        <div class="card-title">📈 Performance Summary</div>
-        <div class="info-row"><span class="info-key">Total Volume</span><span class="info-val">18.4 Tons</span></div>
-        <div class="info-row"><span class="info-key">Active Partners</span><span class="info-val">7 Distributors</span></div>
-        <div class="info-row"><span class="info-key">Avg. Delivery Time</span><span class="info-val">4.2 hours</span></div>
+        <div class="shipment-item"><div><div class="shipment-route">Bondowoso → Sidoarjo</div><div class="shipment-meta">Mixed 600kg · Delayed</div></div><span class="badge badge-orange">Delayed</span></div>
       </div>
     `;
-  } 
-  else if (userRole === 'C') {
-    // TAMPILAN CONSUMER
-    document.getElementById('greetingTextCon').textContent = greeting + ',';
-    document.getElementById('userNameDisplayCon').innerHTML = `🛒 ${displayName}`;
-    document.getElementById('userAvatarCon').textContent = 'C';
-    
+
+    document.getElementById('distributorFeatures').innerHTML = `
+      <div class="hero-card" style="background: linear-gradient(135deg, #1565C0, #1976D2);">
+        <div class="hero-value">🚚 Logistics Hub</div>
+        <div class="hero-sub">Real-time fleet management</div>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card"><div class="feature-card-icon">📍</div><div class="feature-card-title">Live Tracking</div><div class="feature-card-desc">Real-time GPS tracking for all shipments</div></div>
+        <div class="feature-card"><div class="feature-card-icon">📊</div><div class="feature-card-title">Analytics</div><div class="feature-card-desc">Performance metrics & delivery reports</div></div>
+        <div class="feature-card"><div class="feature-card-icon">🔔</div><div class="feature-card-title">Alerts</div><div class="feature-card-desc">Delay notifications & ETAs</div></div>
+        <div class="feature-card"><div class="feature-card-icon">📦</div><div class="feature-card-title">Route Opt.</div><div class="feature-card-desc">AI-powered route optimization</div></div>
+      </div>
+      <div class="card"><div class="card-title">📈 Fleet Performance</div><div class="info-row"><span>Total Vehicles</span><span>5 Trucks</span></div><div class="info-row"><span>Active Partners</span><span>7 Distributors</span></div><div class="info-row"><span>Coverage</span><span>15 Cities</span></div></div>
+    `;
+
+    renderProfile('distributor');
+  }
+
+  function renderConsumer() {
+    document.getElementById('consumerGreeting').textContent = greeting + ',';
+    document.getElementById('consumerName').innerHTML = `🛒 ${profileData.name}`;
+    document.getElementById('consumerAvatar').textContent = 'C';
     document.getElementById('consumerDashboard').innerHTML = `
       <div class="hero-card" style="background: linear-gradient(135deg, var(--orange), #F57C00);">
         <div class="hero-value">Fresh from Farm</div>
         <div class="hero-sub">Scan QR to know your food's journey</div>
       </div>
-      <div class="scanner-box" onclick="simulateScan()">
-        <div class="scanner-icon">📱</div>
-        <div class="info-key" style="margin-bottom:12px;">Tap to scan QR code</div>
-        <button class="btn-scan">📷 Scan QR Code</button>
+      <div class="scanner-box" onclick="simulateScan()"><div class="scanner-icon">📱</div><div class="info-key">Tap to scan QR code</div><button class="btn-scan">📷 Scan QR Code</button></div>
+      <div class="scan-result" id="scanResult"><div class="card"><div class="product-header"><div class="product-img">🌾</div><div><div class="product-name">Premium IR64 Rice</div><div class="info-key">Verified · Organic</div></div></div><div class="info-row"><span class="info-key">Origin</span><span class="info-val">Jember, East Java</span></div><div class="info-row"><span class="info-key">Harvest Date</span><span class="info-val">May 10, 2025</span></div><div class="info-row"><span class="info-key">Farmer</span><span class="info-val">Budi Santoso</span></div></div><div class="card"><div class="card-title">💰 Price Transparency</div><div class="price-row"><div class="price-box"><div class="info-key">Farmer Price</div><div class="price-val">Rp 9,800/kg</div></div><div class="price-box orange"><div class="info-key">Consumer Price</div><div class="price-val">Rp 13,200/kg</div></div></div><div class="blockchain-badge"><span>🔗</span><span><strong>Blockchain Verified</strong><br>Hash: 0x4a7f…c92e</span></div></div></div>
+      <div class="card"><div class="card-title">🛍️ Recent Purchases</div><div class="info-row"><span>🌾 IR64 Rice</span><span>May 15, 2025</span></div><div class="info-row"><span>🌽 Sweet Corn</span><span>May 12, 2025</span></div><div class="info-row"><span>🥬 Organic Veggies</span><span>May 10, 2025</span></div></div>
+    `;
+
+    document.getElementById('consumerFeatures').innerHTML = `
+      <div class="hero-card" style="background: linear-gradient(135deg, var(--orange), #F57C00);">
+        <div class="hero-value">🛍️ Smart Shopping</div>
+        <div class="hero-sub">Know what you eat, from farm to fork</div>
       </div>
-      <div class="scan-result" id="scanResult">
-        <div class="card">
-          <div class="product-header"><div class="product-img">🌾</div><div><div class="product-name">Premium IR64 Rice</div><div class="info-key">Verified · Organic</div></div></div>
-          <div class="info-row"><span class="info-key">Origin</span><span class="info-val">Jember, East Java</span></div>
-          <div class="info-row"><span class="info-key">Harvest Date</span><span class="info-val">May 10, 2025</span></div>
-          <div class="info-row"><span class="info-key">Farmer</span><span class="info-val">Budi Santoso</span></div>
-        </div>
-        <div class="card">
-          <div class="card-title">💰 Price Transparency</div>
-          <div class="price-row"><div class="price-box"><div class="info-key">Farmer Price</div><div class="price-val">Rp 9,800/kg</div></div><div class="price-box orange"><div class="info-key">Consumer Price</div><div class="price-val">Rp 13,200/kg</div></div></div>
-          <div class="blockchain-badge"><span>🔗</span><span><strong>Blockchain Verified</strong><br>Hash: 0x4a7f…c92e</span></div>
-        </div>
+      <div class="features-grid">
+        <div class="feature-card"><div class="feature-card-icon">🔍</div><div class="feature-card-title">QR Traceability</div><div class="feature-card-desc">Scan product QR to see its journey</div></div>
+        <div class="feature-card"><div class="feature-card-icon">💰</div><div class="feature-card-title">Price Compare</div><div class="feature-card-desc">See farmer vs market prices</div></div>
+        <div class="feature-card"><div class="feature-card-icon">🔗</div><div class="feature-card-title">Blockchain</div><div class="feature-card-desc">Fully verified & transparent</div></div>
+        <div class="feature-card"><div class="feature-card-icon">⭐</div><div class="feature-card-title">Reviews</div><div class="feature-card-desc">Rate products & farmers</div></div>
       </div>
-      <div class="card">
-        <div class="card-title">🛍️ Recent Purchases</div>
-        <div class="info-row"><span>🌾 IR64 Rice</span><span>May 15, 2025</span></div>
-        <div class="info-row"><span>🌽 Sweet Corn</span><span>May 12, 2025</span></div>
-        <div class="info-row"><span>🥬 Organic Vegetables</span><span>May 10, 2025</span></div>
+      <div class="card"><div class="card-title">📊 Impact Tracker</div><div class="info-row"><span>Farmers supported</span><span>You helped 3 farmers</span></div><div class="info-row"><span>Carbon saved</span><span>12kg CO2</span></div><div class="info-row"><span>Food waste reduced</span><span>5kg</span></div></div>
+    `;
+
+    renderProfile('consumer');
+  }
+
+  function renderProfile(role) {
+    const profileContent = document.getElementById(`${role}ProfileContent`);
+    const profileName = document.getElementById(`${role}ProfileName`);
+    profileName.innerHTML = role === 'farmer' ? `🌾 ${profileData.name}` : (role === 'distributor' ? `🚚 ${profileData.name}` : `🛒 ${profileData.name}`);
+    
+    profileContent.innerHTML = `
+      <div id="${role}-view-mode" class="view-mode">
+        <div class="profile-header">
+          <div class="profile-avatar">${role === 'farmer' ? '🌾' : (role === 'distributor' ? '🚚' : '🛒')}</div>
+          <div class="profile-name">${profileData.name}</div>
+          <div class="profile-role">${role === 'farmer' ? 'Farmer · Premium Member' : (role === 'distributor' ? 'Distributor · Partner Since 2024' : 'Consumer · Member Since 2025')}</div>
+        </div>
+        <div class="stats-mini">
+          <div class="stat-mini"><div class="stat-mini-value">${role === 'farmer' ? '5+' : (role === 'distributor' ? '23' : '12')}</div><div class="stat-mini-label">${role === 'farmer' ? 'Years Active' : (role === 'distributor' ? 'Deliveries' : 'Purchases')}</div></div>
+          <div class="stat-mini"><div class="stat-mini-value">${role === 'farmer' ? '12.5' : (role === 'distributor' ? '7' : '4.8')}</div><div class="stat-mini-label">${role === 'farmer' ? 'Hectares' : (role === 'distributor' ? 'Partners' : 'Rating')}</div></div>
+          <div class="stat-mini"><div class="stat-mini-value">${role === 'farmer' ? '🌾🌽🥬' : (role === 'distributor' ? '91%' : '🌾🥬')}</div><div class="stat-mini-label">${role === 'farmer' ? 'Crops' : (role === 'distributor' ? 'Success Rate' : 'Products')}</div></div>
+        </div>
+        <div class="card"><div class="card-title">📧 Contact Info</div>
+          <div class="info-row"><span class="info-key">Name</span><span class="info-val">${profileData.name}</span></div>
+          <div class="info-row"><span class="info-key">Email</span><span class="info-val">${profileData.email}</span></div>
+          <div class="info-row"><span class="info-key">Phone</span><span class="info-val">${profileData.phone}</span></div>
+          <div class="info-row"><span class="info-key">Location</span><span class="info-val">${profileData.location}</span></div>
+        </div>
+        <button class="btn-edit" onclick="toggleEditMode('${role}')">✏️ Edit Profile</button>
+      </div>
+      <div id="${role}-edit-mode" class="edit-mode">
+        <div class="card"><div class="card-title">✏️ Edit Profile</div>
+          <div class="form-group"><label class="form-label">Full Name</label><input type="text" class="form-input" id="${role}-edit-name" value="${profileData.name}"></div>
+          <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" id="${role}-edit-email" value="${profileData.email}"></div>
+          <div class="form-group"><label class="form-label">Phone Number</label><input type="tel" class="form-input" id="${role}-edit-phone" value="${profileData.phone}"></div>
+          <div class="form-group"><label class="form-label">Location</label><input type="text" class="form-input" id="${role}-edit-location" value="${profileData.location}"></div>
+          <div class="edit-actions"><button class="btn-cancel" onclick="cancelEdit('${role}')">Cancel</button><button class="btn-save" onclick="saveProfile('${role}')">Save Changes</button></div>
+        </div>
       </div>
     `;
   }
-}
 
-// ==================== NAVIGASI ====================
-function showScreenByRole(section) {
+  // ==================== EDIT PROFILE FUNCTIONS ====================
+  function toggleEditMode(role) {
+    document.getElementById(`${role}-view-mode`).style.display = 'none';
+    document.getElementById(`${role}-edit-mode`).style.display = 'block';
+  }
+
+  function cancelEdit(role) {
+    document.getElementById(`${role}-view-mode`).style.display = 'block';
+    document.getElementById(`${role}-edit-mode`).style.display = 'none';
+  }
+
+  function saveProfile(role) {
+    profileData.name = document.getElementById(`${role}-edit-name`).value;
+    profileData.email = document.getElementById(`${role}-edit-email`).value;
+    profileData.phone = document.getElementById(`${role}-edit-phone`).value;
+    profileData.location = document.getElementById(`${role}-edit-location`).value;
+    
+    localStorage.setItem('userName', profileData.name);
+    localStorage.setItem('userEmail', profileData.email);
+    
+    if (role === 'farmer') {
+      renderFarmer();
+    } else if (role === 'distributor') {
+      renderDistributor();
+    } else {
+      renderConsumer();
+    }
+    
+    cancelEdit(role);
+  }
+
+  // ==================== NAVIGATION FUNCTIONS ====================
+  let currentRole = userRole;
+  let currentPage = 'home';
+
+  function navigateTo(page) {
+    currentPage = page;
+    
+    // Hide all screens
+    const screens = ['home', 'features', 'profile'];
+    screens.forEach(p => {
+      const screenId = `${currentRole}-${p}`;
+      const screenEl = document.getElementById(screenId);
+      if (screenEl) screenEl.classList.remove('active');
+    });
+    
+    // Show selected screen
+    const activeScreenId = `${currentRole}-${page}`;
+    const activeScreen = document.getElementById(activeScreenId);
+    if (activeScreen) activeScreen.classList.add('active');
+    
+    // Update nav active state
+    document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+    const activeNav = document.getElementById(`nav-${page}`);
+    if (activeNav) activeNav.classList.add('active');
+  }
+
+  function goBackToHome(role) {
+    navigateTo('home');
+  }
+
+  function simulateScan() {
+    const result = document.getElementById('scanResult');
+    if (result) {
+      result.classList.add('show');
+      result.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  function logout() {
+    localStorage.removeItem('userEmail');
+    localStorage.removeItem('userRole');
+    localStorage.removeItem('userName');
+    window.location.href = 'login.html';
+  }
+
+  // ==================== INITIAL RENDER ====================
   if (userRole === 'F') {
-    if (section === 'home') {
-      document.getElementById('dashboard-screen').classList.add('active');
-    } else {
-      document.getElementById('dashboard-screen').classList.remove('active');
-      // Fitur lain bisa ditambahkan
-    }
+    currentRole = 'farmer';
+    renderFarmer();
   } else if (userRole === 'D') {
-    if (section === 'home') {
-      document.getElementById('distributor-screen').classList.add('active');
-    } else {
-      document.getElementById('distributor-screen').classList.remove('active');
-    }
-  } else if (userRole === 'C') {
-    if (section === 'home') {
-      document.getElementById('consumer-screen').classList.add('active');
-    } else {
-      document.getElementById('consumer-screen').classList.remove('active');
-    }
+    currentRole = 'distributor';
+    renderDistributor();
+  } else {
+    currentRole = 'consumer';
+    renderConsumer();
   }
   
-  // Update active nav
-  document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('active'));
-  event.currentTarget.classList.add('active');
-}
-
-// ==================== QR SCAN SIMULATION ====================
-function simulateScan() {
-  const result = document.getElementById('scanResult');
-  if (result) {
-    result.classList.add('show');
-    result.scrollIntoView({ behavior: 'smooth' });
-  }
-}
-
-// ==================== LOGOUT ====================
-function logout() {
-  localStorage.removeItem('userEmail');
-  localStorage.removeItem('userRole');
-  localStorage.removeItem('userName');
-  window.location.href = 'login.html';
-}
-
-// ==================== INITIAL RENDER ====================
-renderDashboard();
-
-// Tampilkan screen sesuai role
-document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-if (userRole === 'F') document.getElementById('dashboard-screen').classList.add('active');
-else if (userRole === 'D') document.getElementById('distributor-screen').classList.add('active');
-else if (userRole === 'C') document.getElementById('consumer-screen').classList.add('active');
-
-// Update bottom nav visibility
-document.getElementById('bottomNav').style.display = 'flex';
+  navigateTo('home');
 </script>
 </body>
 </html>
