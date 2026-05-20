@@ -95,8 +95,6 @@
   }
   .logout-btn:hover { background: #f0f0f0; }
 
-  .page-title { font-size: 20px; font-weight: 800; color: var(--text-dark); }
-
   .card {
     background: var(--card);
     border-radius: var(--radius);
@@ -125,16 +123,8 @@
     box-shadow: var(--shadow-lg);
   }
 
-  .hero-label { font-size: 12px; opacity: 0.8; font-weight: 500; margin-bottom: 4px; }
   .hero-value { font-size: 36px; font-weight: 800; letter-spacing: -1px; }
-  .hero-unit { font-size: 16px; font-weight: 500; opacity: 0.85; margin-left: 4px; }
   .hero-sub { font-size: 12px; opacity: 0.7; margin-top: 4px; }
-
-  .progress-wrap { margin-top: 10px; }
-  .progress-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-gray); margin-bottom: 6px; }
-  .progress-bar { height: 8px; background: #eee; border-radius: 99px; overflow: hidden; }
-  .progress-fill { height: 100%; border-radius: 99px; background: var(--green-mid); transition: width 0.8s ease; }
-  .progress-fill.orange { background: var(--orange); }
 
   .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
   .stat-card {
@@ -145,90 +135,19 @@
   }
   .stat-icon { font-size: 22px; margin-bottom: 8px; }
   .stat-val { font-size: 20px; font-weight: 800; color: var(--text-dark); }
-  .stat-lbl { font-size: 11px; color: var(--text-gray); font-weight: 500; margin-top: 2px; }
+  .stat-lbl { font-size: 11px; color: var(--text-gray); font-weight: 500; }
 
-  .bar-chart {
-    display: flex;
-    align-items: flex-end;
-    gap: 6px;
-    height: 80px;
-    margin-top: 10px;
-  }
+  .progress-wrap { margin-top: 10px; }
+  .progress-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-gray); margin-bottom: 6px; }
+  .progress-bar { height: 8px; background: #eee; border-radius: 99px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 99px; background: var(--green-mid); }
+  .progress-fill.orange { background: var(--orange); }
+
+  .bar-chart { display: flex; align-items: flex-end; gap: 6px; height: 80px; margin-top: 10px; }
   .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; }
-  .bar {
-    width: 100%;
-    border-radius: 6px 6px 0 0;
-    background: var(--green-pale);
-    transition: height 0.6s ease;
-  }
+  .bar { width: 100%; border-radius: 6px 6px 0 0; background: var(--green-pale); }
   .bar.active { background: var(--green-mid); }
   .bar-lbl { font-size: 10px; color: var(--text-gray); }
-  .bar-val { font-size: 10px; color: var(--text-gray); font-weight: 600; }
-
-  .forecast-scroll { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 12px; }
-  .forecast-card {
-    min-width: 80px;
-    background: var(--card);
-    border-radius: 14px;
-    padding: 12px 10px;
-    text-align: center;
-    box-shadow: var(--shadow);
-    flex-shrink: 0;
-  }
-  .forecast-card.today { background: var(--green-mid); color: #fff; }
-  .forecast-day { font-size: 11px; font-weight: 600; opacity: 0.7; margin-bottom: 8px; }
-  .forecast-icon { font-size: 24px; margin-bottom: 6px; }
-  .forecast-temp { font-size: 15px; font-weight: 700; }
-
-  .rec-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f5f5f5; }
-  .rec-item:last-child { border-bottom: none; }
-  .rec-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green-mid); margin-top: 4px; flex-shrink: 0; }
-  .rec-dot.orange { background: var(--orange); }
-  .rec-text { font-size: 13px; color: var(--text-dark); line-height: 1.5; }
-  .rec-text strong { font-weight: 700; }
-
-  .badge { display: inline-block; padding: 3px 10px; border-radius: 99px; font-size: 11px; font-weight: 700; }
-  .badge-green { background: var(--green-pale); color: var(--green-dark); }
-  .badge-orange { background: var(--orange-light); color: #E65100; }
-  .badge-blue { background: #E3F2FD; color: #1565C0; }
-
-  .insight-card {
-    background: linear-gradient(135deg, #FF9800, #FFB300);
-    border-radius: var(--radius);
-    padding: 16px;
-    color: #fff;
-    margin-bottom: 12px;
-  }
-  .insight-title { font-size: 13px; font-weight: 700; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
-  .insight-text { font-size: 12px; opacity: 0.9; line-height: 1.6; }
-
-  .map-placeholder {
-    background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
-    border-radius: var(--radius);
-    height: 160px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 12px;
-    position: relative;
-    overflow: hidden;
-    border: 2px dashed #A5D6A7;
-  }
-  .map-pin-icon { font-size: 36px; z-index: 1; }
-  .map-text { font-size: 13px; color: var(--green-dark); font-weight: 600; z-index: 1; }
-
-  .distro-stat-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 12px; }
-  .distro-stat {
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 12px 8px;
-    text-align: center;
-    box-shadow: var(--shadow);
-  }
-  .distro-stat-val { font-size: 22px; font-weight: 800; color: var(--text-dark); }
-  .distro-stat-lbl { font-size: 10px; color: var(--text-gray); margin-top: 2px; }
 
   .shipment-item {
     display: flex;
@@ -241,6 +160,11 @@
   .shipment-route { font-size: 14px; font-weight: 700; color: var(--text-dark); }
   .shipment-meta { font-size: 11px; color: var(--text-gray); margin-top: 2px; }
 
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 99px; font-size: 11px; font-weight: 700; }
+  .badge-green { background: var(--green-pale); color: var(--green-dark); }
+  .badge-blue { background: #E3F2FD; color: #1565C0; }
+  .badge-orange { background: var(--orange-light); color: #E65100; }
+
   .scanner-box {
     border: 2.5px dashed var(--orange);
     border-radius: var(--radius);
@@ -251,42 +175,29 @@
     cursor: pointer;
   }
   .scanner-icon { font-size: 52px; margin-bottom: 12px; }
-  .scanner-label { font-size: 14px; color: var(--text-gray); margin-bottom: 16px; }
   .btn-scan {
     background: var(--orange);
     color: #fff;
     border: none;
     border-radius: var(--radius-btn);
     padding: 12px 28px;
-    font-family: var(--font);
-    font-size: 14px;
     font-weight: 700;
     cursor: pointer;
   }
-
   .scan-result { display: none; }
   .scan-result.show { display: block; }
 
   .product-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
   .product-img { width: 52px; height: 52px; border-radius: 14px; background: linear-gradient(135deg, #C8E6C9, #A5D6A7); display: flex; align-items: center; justify-content: center; font-size: 26px; }
-  .product-name { font-size: 16px; font-weight: 800; color: var(--text-dark); }
-  .product-sub { font-size: 12px; color: var(--text-gray); margin-top: 2px; }
+  .product-name { font-size: 16px; font-weight: 800; }
 
-  .info-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f5f5f5; font-size: 13px; }
-  .info-key { color: var(--text-gray); font-weight: 500; }
+  .info-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f5f5f5; font-size: 13px; }
+  .info-key { color: var(--text-gray); }
   .info-val { color: var(--text-dark); font-weight: 600; }
-
-  .timeline { display: flex; align-items: center; justify-content: space-between; margin: 14px 0; position: relative; }
-  .timeline::before { content: ''; position: absolute; top: 18px; left: 18px; right: 18px; height: 2px; background: var(--green-pale); z-index: 0; }
-  .tl-step { text-align: center; z-index: 1; flex: 1; }
-  .tl-circle { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; margin: 0 auto 6px; background: var(--green-mid); color: #fff; }
-  .tl-circle.inactive { background: #e0e0e0; }
-  .tl-label { font-size: 10px; color: var(--text-gray); font-weight: 600; }
 
   .price-row { display: flex; gap: 10px; margin-top: 14px; }
   .price-box { flex: 1; background: var(--green-pale); border-radius: 12px; padding: 12px; text-align: center; }
   .price-box.orange { background: var(--orange-light); }
-  .price-who { font-size: 11px; color: var(--text-gray); font-weight: 600; }
   .price-val { font-size: 15px; font-weight: 800; color: var(--green-dark); margin-top: 4px; }
 
   .blockchain-badge {
@@ -299,48 +210,20 @@
     padding: 12px 14px;
     margin-top: 14px;
   }
-  .blockchain-icon { font-size: 22px; }
-  .blockchain-text { font-size: 12px; }
-  .blockchain-text strong { display: block; font-size: 13px; margin-bottom: 2px; }
 
-  .chat-messages {
-    flex: 1;
-    overflow-y: auto;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    height: 400px;
-    background: var(--bg);
+  .forecast-scroll { display: flex; gap: 10px; overflow-x: auto; margin-bottom: 12px; }
+  .forecast-card {
+    min-width: 80px;
+    background: var(--card);
+    border-radius: 14px;
+    padding: 12px;
+    text-align: center;
+    box-shadow: var(--shadow);
   }
-  .msg { max-width: 80%; display: flex; flex-direction: column; gap: 4px; }
-  .msg.user { align-self: flex-end; align-items: flex-end; }
-  .msg.bot { align-self: flex-start; align-items: flex-start; }
-  .msg-bubble { padding: 11px 14px; border-radius: 18px; font-size: 13px; line-height: 1.55; }
-  .msg.user .msg-bubble { background: var(--green-mid); color: #fff; border-radius: 18px 18px 4px 18px; }
-  .msg.bot .msg-bubble { background: #fff; color: var(--text-dark); border-radius: 18px 18px 18px 4px; box-shadow: var(--shadow); }
-  .bot-avatar { width: 28px; height: 28px; border-radius: 10px; background: var(--green-dark); display: flex; align-items: center; justify-content: center; font-size: 14px; margin-bottom: 4px; }
-  .msg-time { font-size: 10px; color: var(--text-gray); }
+  .forecast-card.today { background: var(--green-mid); color: #fff; }
 
-  .quick-replies { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 16px; border-top: 1px solid #f0f0ee; background: #fff; }
-  .qr-chip {
-    padding: 7px 14px;
-    border-radius: 99px;
-    background: var(--green-pale);
-    color: var(--green-dark);
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    border: 1.5px solid #A5D6A7;
-    font-family: var(--font);
-  }
-  .qr-chip:hover { background: var(--green-mid); color: #fff; border-color: var(--green-mid); }
-
-  .chat-input-bar { display: flex; align-items: center; gap: 10px; padding: 10px 16px 16px; background: #fff; }
-  .chat-input { flex: 1; padding: 11px 16px; border: 1.5px solid var(--border); border-radius: 99px; font-family: var(--font); font-size: 13px; outline: none; }
-  .chat-input:focus { border-color: var(--green-mid); }
-  .btn-send { width: 42px; height: 42px; border-radius: 50%; background: var(--orange); border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; }
-  .btn-send svg { width: 18px; height: 18px; fill: #fff; }
+  .stock-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
+  .stock-name { font-size: 14px; font-weight: 700; }
 
   .bottom-nav {
     position: fixed;
@@ -351,7 +234,6 @@
     border-top: 1px solid #f0f0ee;
     display: flex;
     z-index: 100;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
   }
 
   .nav-item {
@@ -362,61 +244,30 @@
     justify-content: center;
     padding: 10px 4px 8px;
     cursor: pointer;
-    transition: all 0.2s;
     gap: 4px;
-    border: none;
     background: none;
-    font-family: var(--font);
-    position: relative;
+    border: none;
   }
-
-  .nav-icon { font-size: 22px; transition: transform 0.2s; }
+  .nav-icon { font-size: 22px; }
   .nav-label { font-size: 10px; color: var(--text-gray); font-weight: 600; }
   .nav-item.active .nav-label { color: var(--green-mid); }
-  .nav-item.active .nav-icon { transform: translateY(-2px); }
 
-  .nav-item.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20px;
-    height: 3px;
-    background: var(--green-mid);
-    border-radius: 99px;
-  }
-
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-  .screen.active .card, .screen.active .hero-card { animation: fadeIn 0.35s ease both; }
-
-  .typing-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--text-gray); animation: blink 1.2s infinite; margin: 0 2px; }
-  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
-  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-  @keyframes blink { 0%, 80%, 100% { opacity: 0.2; } 40% { opacity: 1; } }
-
-  .section-label { font-size: 15px; font-weight: 800; color: var(--text-dark); margin-bottom: 10px; margin-top: 4px; }
-  .stock-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
-  .stock-name { font-size: 14px; font-weight: 700; color: var(--text-dark); }
-  .stock-kg { font-size: 13px; color: var(--text-gray); }
-  .stock-prediction { font-size: 11px; margin-top: 6px; padding: 6px 10px; border-radius: 8px; font-weight: 600; }
-  .stock-prediction.warn { background: var(--orange-light); color: #E65100; }
-  .stock-prediction.ok { background: var(--green-pale); color: var(--green-dark); }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .screen.active .card, .screen.active .hero-card { animation: fadeIn 0.35s ease; }
 
   @media (min-width: 481px) { .app-shell { margin: 0 auto; } }
-  .divider { height: 1px; background: #f0f0ee; margin: 4px 0 12px; }
 </style>
 </head>
 <body>
 
 <div class="app-shell">
 
-  <!-- DASHBOARD SCREEN -->
+  <!-- ==================== FARMER DASHBOARD ==================== -->
   <div class="screen active" id="dashboard-screen">
     <div class="app-header">
       <div class="header-row">
         <div>
-          <div class="header-greeting" id="greetingText">Selamat Malam,</div>
+          <div class="header-greeting" id="greetingText">Memuat...</div>
           <div class="header-name" id="userNameDisplay">Memuat...</div>
         </div>
         <div style="display: flex; gap: 12px; align-items: center;">
@@ -425,150 +276,59 @@
         </div>
       </div>
     </div>
-    <div class="scroll-area">
-      <div class="hero-card">
-        <div class="hero-label">Total Harvest This Season</div>
-        <div><span class="hero-value">24.7</span><span class="hero-unit">Tons</span></div>
-        <div class="hero-sub">↑ 12% vs last season</div>
-        <div class="hero-badge">🏆 Top 10% in Jember Region</div>
-      </div>
-      <div class="stat-grid">
-        <div class="stat-card"><div class="stat-icon">🌦️</div><div class="stat-val">31°C</div><div class="stat-lbl">Sunny · Jember</div></div>
-        <div class="stat-card"><div class="stat-icon">💧</div><div class="stat-val">70%</div><div class="stat-lbl">Humidity Today</div></div>
-      </div>
-      <div class="card">
-        <div class="card-title">🌱 Soil Fertility Index</div>
-        <div class="progress-wrap">
-          <div class="progress-label"><span>Overall Health</span><span style="color:#2E7D32;font-weight:700">85%</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:85%"></div></div>
+    <div class="scroll-area" id="farmerDashboard">
+      <!-- Konten FARMER akan diisi JavaScript -->
+    </div>
+  </div>
+
+  <!-- ==================== DISTRIBUTOR DASHBOARD ==================== -->
+  <div class="screen" id="distributor-screen">
+    <div class="app-header">
+      <div class="header-row">
+        <div>
+          <div class="header-greeting" id="greetingTextDist">Memuat...</div>
+          <div class="header-name" id="userNameDisplayDist">Memuat...</div>
         </div>
-        <div style="margin-top:10px;font-size:12px;color:var(--text-gray)">N: High · P: Medium · K: High</div>
-      </div>
-      <div class="card">
-        <div class="card-title">📦 Current Stock</div>
-        <div class="stock-header"><span class="stock-name">🌾 Rice (IR64)</span><span class="stock-kg">1,200 kg</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
-        <div class="stock-header" style="margin-top:12px"><span class="stock-name">🌽 Corn</span><span class="stock-kg">320 kg</span></div>
-        <div class="progress-bar"><div class="progress-fill orange" style="width:32%"></div></div>
-      </div>
-      <div class="card">
-        <div class="card-title">📊 Harvest (Last 6 Months)</div>
-        <div class="bar-chart">
-          <div class="bar-col"><div class="bar-val">2.1t</div><div class="bar" style="height:42px"></div><div class="bar-lbl">Dec</div></div>
-          <div class="bar-col"><div class="bar-val">3.4t</div><div class="bar" style="height:56px"></div><div class="bar-lbl">Jan</div></div>
-          <div class="bar-col"><div class="bar-val">2.8t</div><div class="bar" style="height:48px"></div><div class="bar-lbl">Feb</div></div>
-          <div class="bar-col"><div class="bar-val">4.2t</div><div class="bar" style="height:66px"></div><div class="bar-lbl">Mar</div></div>
-          <div class="bar-col"><div class="bar-val">5.1t</div><div class="bar" style="height:76px"></div><div class="bar-lbl">Apr</div></div>
-          <div class="bar-col"><div class="bar-val">4.7t</div><div class="bar active" style="height:72px"></div><div class="bar-lbl">May</div></div>
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <div class="avatar" style="background: var(--orange);" id="userAvatarDist">🚚</div>
+          <button class="logout-btn" onclick="logout()" title="Logout">🚪</button>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- AI SCREEN -->
-  <div class="screen" id="ai-screen">
-    <div class="app-header"><div class="header-row"><div class="page-title">🤖 AI Insights</div><span class="badge badge-green">● Live</span></div></div>
-    <div class="scroll-area">
-      <div class="section-label">5-Day Forecast</div>
-      <div class="forecast-scroll">
-        <div class="forecast-card today"><div class="forecast-day">TODAY</div><div class="forecast-icon">☀️</div><div class="forecast-temp">31°C</div></div>
-        <div class="forecast-card"><div class="forecast-day">TUE</div><div class="forecast-icon">⛅</div><div class="forecast-temp">28°C</div></div>
-        <div class="forecast-card"><div class="forecast-day">WED</div><div class="forecast-icon">🌧️</div><div class="forecast-temp">25°C</div></div>
-        <div class="forecast-card"><div class="forecast-day">THU</div><div class="forecast-icon">🌧️</div><div class="forecast-temp">24°C</div></div>
-        <div class="forecast-card"><div class="forecast-day">FRI</div><div class="forecast-icon">⛅</div><div class="forecast-temp">27°C</div></div>
-      </div>
-      <div class="card">
-        <div class="card-title">🌿 Planting Recommendations</div>
-        <div class="rec-item"><div class="rec-dot"></div><div class="rec-text"><strong>Rice (IR64)</strong> — Optimal window Jun 2–8. Rain forecast supports early germination.</div></div>
-        <div class="rec-item"><div class="rec-dot"></div><div class="rec-text"><strong>Corn</strong> — Delay planting to Jun 12. Current humidity may cause fungal issues.</div></div>
-        <div class="rec-item"><div class="rec-dot orange"></div><div class="rec-text"><strong>⚠️ Warning:</strong> Pest activity risk HIGH in Wed–Thu.</div></div>
-      </div>
-      <div class="section-label">📦 StockSense AI</div>
-      <div class="card">
-        <div class="stock-header"><span class="stock-name">🌾 Rice (IR64)</span><span class="badge badge-green">Sufficient</span></div>
-        <div class="stock-kg">4,200 kg in storage</div>
-        <div class="progress-wrap"><div class="progress-label"><span>Stock Level</span><span style="color:#2E7D32;font-weight:700">70%</span></div><div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div></div>
-        <div class="stock-prediction ok">📅 Estimated stock out: June 18, 2025</div>
-      </div>
-      <div class="card">
-        <div class="stock-header"><span class="stock-name">🌽 Corn</span><span class="badge badge-orange">Low Stock</span></div>
-        <div class="stock-kg">850 kg in storage</div>
-        <div class="progress-wrap"><div class="progress-label"><span>Stock Level</span><span style="color:var(--orange);font-weight:700">42%</span></div><div class="progress-bar"><div class="progress-fill orange" style="width:42%"></div></div></div>
-        <div class="stock-prediction warn">⚠️ At current rate: out of stock June 5. Restock recommended.</div>
-      </div>
-      <div class="insight-card"><div class="insight-title">💡 AI Insight of the Day</div><div class="insight-text">Based on your soil pH (6.8) and upcoming rainfall, apply 30kg/ha NPK this week. Predicted improvement: <strong>+8–12% yield</strong>.</div></div>
+    <div class="scroll-area" id="distributorDashboard">
+      <!-- Konten DISTRIBUTOR akan diisi JavaScript -->
     </div>
   </div>
 
-  <!-- DISTROTRACK SCREEN -->
-  <div class="screen" id="distro-screen">
-    <div class="app-header"><div class="header-row"><div class="page-title">🚚 DistroTrack</div><span class="badge badge-blue">Live Map</span></div></div>
-    <div class="scroll-area">
-      <div class="map-placeholder"><div class="map-pin-icon">📍</div><div class="map-text">East Java Distribution Network</div></div>
-      <div class="distro-stat-grid">
-        <div class="distro-stat"><div class="distro-stat-val">8</div><div class="distro-stat-lbl">🟢 Active</div></div>
-        <div class="distro-stat"><div class="distro-stat-val">23</div><div class="distro-stat-lbl">✅ Completed</div></div>
-        <div class="distro-stat"><div class="distro-stat-val">2</div><div class="distro-stat-lbl">⚠️ Delayed</div></div>
-      </div>
-      <div class="card">
-        <div class="card-title">🗓️ Active Shipments</div>
-        <div class="shipment-item"><div><div class="shipment-route">Jember → Surabaya</div><div class="shipment-meta">Rice 800kg · ETA: Today 18:00</div></div><span class="badge badge-blue">In Transit</span></div>
-        <div class="shipment-item"><div><div class="shipment-route">Malang → Gresik</div><div class="shipment-meta">Corn 450kg · Arrived May 14</div></div><span class="badge badge-green">Delivered</span></div>
-        <div class="shipment-item"><div><div class="shipment-route">Bondowoso → Sidoarjo</div><div class="shipment-meta">Mixed 600kg · Delayed ~3hrs</div></div><span class="badge badge-orange">Delayed</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- QR SCAN SCREEN -->
-  <div class="screen" id="scan-screen">
-    <div class="app-header"><div class="header-row"><div class="page-title">🔍 QR Traceability</div><span class="badge badge-blue">Blockchain</span></div></div>
-    <div class="scroll-area">
-      <div class="scanner-box" onclick="simulateScan()"><div class="scanner-icon">📱</div><div class="scanner-label">Tap to scan QR code</div><button class="btn-scan">📷 Scan QR Code</button></div>
-      <div class="scan-result" id="scanResult">
-        <div class="card"><div class="product-header"><div class="product-img">🌾</div><div><div class="product-name">Premium IR64 Rice</div><div class="product-sub">Verified · Organic Certified</div></div></div>
-          <div class="info-row"><span class="info-key">Farmer</span><span class="info-val">Budi Santoso</span></div>
-          <div class="info-row"><span class="info-key">Origin</span><span class="info-val">Jember, East Java</span></div>
-          <div class="info-row"><span class="info-key">Harvest Date</span><span class="info-val">May 10, 2025</span></div>
+  <!-- ==================== CONSUMER DASHBOARD ==================== -->
+  <div class="screen" id="consumer-screen">
+    <div class="app-header">
+      <div class="header-row">
+        <div>
+          <div class="header-greeting" id="greetingTextCon">Memuat...</div>
+          <div class="header-name" id="userNameDisplayCon">Memuat...</div>
         </div>
-        <div class="card"><div class="card-title">💰 Price Transparency</div><div class="price-row"><div class="price-box"><div class="price-who">Farmer Price</div><div class="price-val">Rp 9,800/kg</div></div><div class="price-box orange"><div class="price-who">Consumer Price</div><div class="price-val">Rp 13,200/kg</div></div></div>
-          <div class="blockchain-badge"><div class="blockchain-icon">🔗</div><div class="blockchain-text"><strong>Blockchain Verified ✓</strong><br>Hash: 0x4a7f…c92e</div></div>
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <div class="avatar" style="background: var(--green-light);" id="userAvatarCon">🛒</div>
+          <button class="logout-btn" onclick="logout()" title="Logout">🚪</button>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- CHATBOT SCREEN -->
-  <div class="screen" id="chat-screen">
-    <div class="app-header"><div class="header-row"><div class="page-title">🤖 AgriBot AI</div><div style="font-size:11px;color:#4CAF50;">● Online</div></div></div>
-    <div class="chat-messages" id="chatMessages">
-      <div class="msg bot"><div class="bot-avatar">🌿</div><div class="msg-bubble">Halo! I'm AgriBot. Ask me about planting, pests, prices, or weather. How can I help you today? 🌾</div><div class="msg-time">09:14 AM</div></div>
-      <div class="msg user"><div class="msg-bubble">What's the best time to plant rice?</div><div class="msg-time">09:16 AM</div></div>
-      <div class="msg bot"><div class="bot-avatar">🌿</div><div class="msg-bubble">The best time is June 2-8. Rainfall forecast 45mm, soil temp 28°C. Perfect for IR64 rice. 🌱</div><div class="msg-time">09:16 AM</div></div>
-    </div>
-    <div class="quick-replies">
-      <button class="qr-chip" onclick="sendQuickReply('Planting guide for rice')">🌱 Planting guide</button>
-      <button class="qr-chip" onclick="sendQuickReply('How to control pests?')">🐛 Pest control</button>
-      <button class="qr-chip" onclick="sendQuickReply('Market price for rice')">💰 Market price</button>
-      <button class="qr-chip" onclick="sendQuickReply('Weather forecast')">🌤️ Weather</button>
-    </div>
-    <div class="chat-input-bar">
-      <input class="chat-input" id="chatInput" placeholder="Ask AgriBot..." onkeypress="if(event.key==='Enter') sendChat()">
-      <button class="btn-send" onclick="sendChat()"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
+    <div class="scroll-area" id="consumerDashboard">
+      <!-- Konten CONSUMER akan diisi JavaScript -->
     </div>
   </div>
 
-  <!-- BOTTOM NAV -->
-  <div class="bottom-nav">
-    <button class="nav-item active" onclick="showScreen('dashboard')"><span class="nav-icon">🏠</span><span class="nav-label">Home</span></button>
-    <button class="nav-item" onclick="showScreen('ai')"><span class="nav-icon">🤖</span><span class="nav-label">AI</span></button>
-    <button class="nav-item" onclick="showScreen('distro')"><span class="nav-icon">🚚</span><span class="nav-label">Distro</span></button>
-    <button class="nav-item" onclick="showScreen('scan')"><span class="nav-icon">📷</span><span class="nav-label">Scan</span></button>
-    <button class="nav-item" onclick="showScreen('chat')"><span class="nav-icon">💬</span><span class="nav-label">Chat</span></button>
+  <!-- ==================== BOTTOM NAV ==================== -->
+  <div class="bottom-nav" id="bottomNav">
+    <button class="nav-item active" onclick="showScreenByRole('home')"><span class="nav-icon">🏠</span><span class="nav-label">Home</span></button>
+    <button class="nav-item" onclick="showScreenByRole('features')"><span class="nav-icon">⚙️</span><span class="nav-label">Features</span></button>
+    <button class="nav-item" onclick="showScreenByRole('profile')"><span class="nav-icon">👤</span><span class="nav-label">Profile</span></button>
   </div>
 </div>
 
 <script>
-// ==================== FUNGSI SAPAAN BERDASARKAN WAKTU ====================
+// ==================== GET TIME GREETING ====================
 function getTimeGreeting() {
   const now = new Date();
   const hours = now.getHours();
@@ -583,19 +343,10 @@ let userEmail = localStorage.getItem('userEmail');
 let userRole = localStorage.getItem('userRole');
 let userName = localStorage.getItem('userName');
 
-// Jika tidak ada data, redirect ke login
 if (!userEmail || !userRole) {
   window.location.href = 'login.html';
 }
 
-// Mapping role ke icon
-const roleIconMap = {
-  'F': '🌾',
-  'D': '🚚',
-  'C': '🛒'
-};
-
-// Ambil nama dari email jika userName tidak ada
 let displayName = userName;
 if (!displayName && userEmail) {
   displayName = userEmail.split('@')[0];
@@ -603,116 +354,180 @@ if (!displayName && userEmail) {
 }
 if (!displayName) displayName = 'User';
 
-const roleIcon = roleIconMap[userRole] || '🌾';
 const greeting = getTimeGreeting();
 
-// Update UI
-document.getElementById('greetingText').textContent = greeting + ',';
-document.getElementById('userNameDisplay').innerHTML = `${roleIcon} ${displayName}`;
-document.getElementById('userAvatar').textContent = userRole === 'F' ? 'F' : (userRole === 'D' ? 'D' : 'C');
+// ==================== RENDER DASHBOARD BERDASARKAN ROLE ====================
+function renderDashboard() {
+  if (userRole === 'F') {
+    // TAMPILAN FARMER
+    document.getElementById('greetingText').textContent = greeting + ',';
+    document.getElementById('userNameDisplay').innerHTML = `🌾 ${displayName}`;
+    document.getElementById('userAvatar').textContent = 'F';
+    
+    document.getElementById('farmerDashboard').innerHTML = `
+      <div class="hero-card">
+        <div class="hero-value">24.7 <span style="font-size:16px;">Tons</span></div>
+        <div class="hero-sub">↑ 12% vs last season · Top 10% in Jember</div>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-icon">🌦️</div><div class="stat-val">31°C</div><div class="stat-lbl">Sunny · Jember</div></div>
+        <div class="stat-card"><div class="stat-icon">💧</div><div class="stat-val">70%</div><div class="stat-lbl">Humidity</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">🌱 Soil Fertility</div>
+        <div class="progress-wrap"><div class="progress-label"><span>Overall Health</span><span>85%</span></div><div class="progress-bar"><div class="progress-fill" style="width:85%"></div></div></div>
+        <div style="margin-top:10px; font-size:12px; color:var(--text-gray)">N: High · P: Medium · K: High</div>
+      </div>
+      <div class="card">
+        <div class="card-title">📦 Current Stock</div>
+        <div class="stock-header"><span class="stock-name">🌾 Rice (IR64)</span><span>1,200 kg</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
+        <div class="stock-header" style="margin-top:12px"><span class="stock-name">🌽 Corn</span><span>320 kg</span></div>
+        <div class="progress-bar"><div class="progress-fill orange" style="width:32%"></div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">📊 Harvest Chart</div>
+        <div class="bar-chart">
+          <div class="bar-col"><div class="bar" style="height:42px"></div><div class="bar-lbl">Dec</div></div>
+          <div class="bar-col"><div class="bar" style="height:56px"></div><div class="bar-lbl">Jan</div></div>
+          <div class="bar-col"><div class="bar" style="height:48px"></div><div class="bar-lbl">Feb</div></div>
+          <div class="bar-col"><div class="bar" style="height:66px"></div><div class="bar-lbl">Mar</div></div>
+          <div class="bar-col"><div class="bar" style="height:76px"></div><div class="bar-lbl">Apr</div></div>
+          <div class="bar-col"><div class="bar active" style="height:72px"></div><div class="bar-lbl">May</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">🤖 AI Recommendation</div>
+        <p style="font-size:13px;">Optimal planting window: <strong>June 2-8</strong>. Rainfall 45mm expected. Ideal for IR64 rice.</p>
+      </div>
+    `;
+  } 
+  else if (userRole === 'D') {
+    // TAMPILAN DISTRIBUTOR
+    document.getElementById('greetingTextDist').textContent = greeting + ',';
+    document.getElementById('userNameDisplayDist').innerHTML = `🚚 ${displayName}`;
+    document.getElementById('userAvatarDist').textContent = 'D';
+    
+    document.getElementById('distributorDashboard').innerHTML = `
+      <div class="hero-card" style="background: linear-gradient(135deg, #1565C0, #1976D2);">
+        <div class="hero-value">18.4 <span style="font-size:16px;">Tons</span></div>
+        <div class="hero-sub">Total Volume Shipped This Month</div>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-icon">🚛</div><div class="stat-val">8</div><div class="stat-lbl">Active Shipments</div></div>
+        <div class="stat-card"><div class="stat-icon">✅</div><div class="stat-val">23</div><div class="stat-lbl">Completed</div></div>
+        <div class="stat-card"><div class="stat-icon">⏰</div><div class="stat-val">91.3%</div><div class="stat-lbl">On-Time Delivery</div></div>
+        <div class="stat-card"><div class="stat-icon">⚠️</div><div class="stat-val">2</div><div class="stat-lbl">Delayed</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">🚚 Active Shipments</div>
+        <div class="shipment-item"><div><div class="shipment-route">Jember → Surabaya</div><div class="shipment-meta">Rice 800kg · ETA: Today 18:00</div></div><span class="badge badge-blue">In Transit</span></div>
+        <div class="shipment-item"><div><div class="shipment-route">Malang → Gresik</div><div class="shipment-meta">Corn 450kg · Arrived</div></div><span class="badge badge-green">Delivered</span></div>
+        <div class="shipment-item"><div><div class="shipment-route">Bondowoso → Sidoarjo</div><div class="shipment-meta">Mixed 600kg · Delayed 3hrs</div></div><span class="badge badge-orange">Delayed</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">📈 Performance Summary</div>
+        <div class="info-row"><span class="info-key">Total Volume</span><span class="info-val">18.4 Tons</span></div>
+        <div class="info-row"><span class="info-key">Active Partners</span><span class="info-val">7 Distributors</span></div>
+        <div class="info-row"><span class="info-key">Avg. Delivery Time</span><span class="info-val">4.2 hours</span></div>
+      </div>
+    `;
+  } 
+  else if (userRole === 'C') {
+    // TAMPILAN CONSUMER
+    document.getElementById('greetingTextCon').textContent = greeting + ',';
+    document.getElementById('userNameDisplayCon').innerHTML = `🛒 ${displayName}`;
+    document.getElementById('userAvatarCon').textContent = 'C';
+    
+    document.getElementById('consumerDashboard').innerHTML = `
+      <div class="hero-card" style="background: linear-gradient(135deg, var(--orange), #F57C00);">
+        <div class="hero-value">Fresh from Farm</div>
+        <div class="hero-sub">Scan QR to know your food's journey</div>
+      </div>
+      <div class="scanner-box" onclick="simulateScan()">
+        <div class="scanner-icon">📱</div>
+        <div class="info-key" style="margin-bottom:12px;">Tap to scan QR code</div>
+        <button class="btn-scan">📷 Scan QR Code</button>
+      </div>
+      <div class="scan-result" id="scanResult">
+        <div class="card">
+          <div class="product-header"><div class="product-img">🌾</div><div><div class="product-name">Premium IR64 Rice</div><div class="info-key">Verified · Organic</div></div></div>
+          <div class="info-row"><span class="info-key">Origin</span><span class="info-val">Jember, East Java</span></div>
+          <div class="info-row"><span class="info-key">Harvest Date</span><span class="info-val">May 10, 2025</span></div>
+          <div class="info-row"><span class="info-key">Farmer</span><span class="info-val">Budi Santoso</span></div>
+        </div>
+        <div class="card">
+          <div class="card-title">💰 Price Transparency</div>
+          <div class="price-row"><div class="price-box"><div class="info-key">Farmer Price</div><div class="price-val">Rp 9,800/kg</div></div><div class="price-box orange"><div class="info-key">Consumer Price</div><div class="price-val">Rp 13,200/kg</div></div></div>
+          <div class="blockchain-badge"><span>🔗</span><span><strong>Blockchain Verified</strong><br>Hash: 0x4a7f…c92e</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">🛍️ Recent Purchases</div>
+        <div class="info-row"><span>🌾 IR64 Rice</span><span>May 15, 2025</span></div>
+        <div class="info-row"><span>🌽 Sweet Corn</span><span>May 12, 2025</span></div>
+        <div class="info-row"><span>🥬 Organic Vegetables</span><span>May 10, 2025</span></div>
+      </div>
+    `;
+  }
+}
 
-// ==================== NAVIGASI SCREEN ====================
-function showScreen(screenName) {
-  const screens = ['dashboard', 'ai', 'distro', 'scan', 'chat'];
-  screens.forEach(s => {
-    const screenEl = document.getElementById(s + '-screen');
-    const navBtn = document.querySelector(`.nav-item[onclick="showScreen('${s}')"]`);
-    if (s === screenName) {
-      if (screenEl) screenEl.classList.add('active');
-      if (navBtn) navBtn.classList.add('active');
+// ==================== NAVIGASI ====================
+function showScreenByRole(section) {
+  if (userRole === 'F') {
+    if (section === 'home') {
+      document.getElementById('dashboard-screen').classList.add('active');
     } else {
-      if (screenEl) screenEl.classList.remove('active');
-      if (navBtn) navBtn.classList.remove('active');
+      document.getElementById('dashboard-screen').classList.remove('active');
+      // Fitur lain bisa ditambahkan
     }
-  });
+  } else if (userRole === 'D') {
+    if (section === 'home') {
+      document.getElementById('distributor-screen').classList.add('active');
+    } else {
+      document.getElementById('distributor-screen').classList.remove('active');
+    }
+  } else if (userRole === 'C') {
+    if (section === 'home') {
+      document.getElementById('consumer-screen').classList.add('active');
+    } else {
+      document.getElementById('consumer-screen').classList.remove('active');
+    }
+  }
+  
+  // Update active nav
+  document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('active'));
+  event.currentTarget.classList.add('active');
 }
 
 // ==================== QR SCAN SIMULATION ====================
 function simulateScan() {
-  const box = document.querySelector('.scanner-box');
-  box.style.borderColor = '#2E7D32';
-  box.style.background = '#E8F5E9';
-  box.innerHTML = '<div class="scanner-icon">✅</div><div class="scanner-label" style="color:#1B5E20;font-weight:600">QR Code Detected!</div><button class="btn-scan" style="background:#2E7D32" onclick="resetScan()">🔄 Scan Again</button>';
-  document.getElementById('scanResult').classList.add('show');
+  const result = document.getElementById('scanResult');
+  if (result) {
+    result.classList.add('show');
+    result.scrollIntoView({ behavior: 'smooth' });
+  }
 }
 
-function resetScan() {
-  const box = document.querySelector('.scanner-box');
-  box.style.borderColor = '#FF9800';
-  box.style.background = '#FFF3E0';
-  box.innerHTML = '<div class="scanner-icon">📱</div><div class="scanner-label">Tap to scan QR code</div><button class="btn-scan">📷 Scan QR Code</button>';
-  box.setAttribute('onclick', 'simulateScan()');
-  document.getElementById('scanResult').classList.remove('show');
-}
-
-// ==================== CHATBOT FUNCTIONS ====================
-const botResponses = {
-  'Planting guide for rice': 'Best planting time: June 2-8. Soil temp 28°C, rainfall 45mm expected. Use IR64 variety for optimal yield. 🌱',
-  'How to control pests?': 'For brown planthopper: spray neem oil (5ml/L) in early morning. Maintain 2cm water level. Use yellow sticky traps. 🐛',
-  'Market price for rice': 'IR64 Premium: Rp12,800-13,200/kg. Organic: Rp16,500-18,000/kg. Prices up 4.2% from last week! 💰',
-  'Weather forecast': 'Jember: Today 31°C sunny, Wed 25°C rain, Thu 24°C rain. Good for soil preparation. ☁️'
-};
-
-function sendQuickReply(text) {
-  addUserMessage(text);
-  const reply = botResponses[text] || 'Thanks for asking! Let me analyze your farm data. 🌾';
-  showBotTypingAndReply(reply);
-}
-
-function sendChat() {
-  const input = document.getElementById('chatInput');
-  const text = input.value.trim();
-  if (!text) return;
-  input.value = '';
-  addUserMessage(text);
-  let reply = 'Great question! Based on your farm data, check the AI Insights tab. 🌾';
-  const lower = text.toLowerCase();
-  if (lower.includes('plant') || lower.includes('tanam')) reply = botResponses['Planting guide for rice'];
-  else if (lower.includes('pest') || lower.includes('hama')) reply = botResponses['How to control pests?'];
-  else if (lower.includes('price') || lower.includes('harga')) reply = botResponses['Market price for rice'];
-  else if (lower.includes('weather') || lower.includes('cuaca')) reply = botResponses['Weather forecast'];
-  showBotTypingAndReply(reply);
-}
-
-function addUserMessage(text) {
-  const container = document.getElementById('chatMessages');
-  const now = new Date();
-  const time = now.getHours() + ':' + String(now.getMinutes()).padStart(2, '0');
-  const msg = document.createElement('div');
-  msg.className = 'msg user';
-  msg.innerHTML = `<div class="msg-bubble">${text}</div><div class="msg-time">${time}</div>`;
-  container.appendChild(msg);
-  container.scrollTop = container.scrollHeight;
-}
-
-function showBotTypingAndReply(replyText) {
-  const container = document.getElementById('chatMessages');
-  const typing = document.createElement('div');
-  typing.className = 'msg bot';
-  typing.id = 'typingIndicator';
-  typing.innerHTML = `<div class="bot-avatar">🌿</div><div class="msg-bubble"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>`;
-  container.appendChild(typing);
-  container.scrollTop = container.scrollHeight;
-  
-  setTimeout(() => {
-    typing.remove();
-    const now = new Date();
-    const time = now.getHours() + ':' + String(now.getMinutes()).padStart(2, '0');
-    const msg = document.createElement('div');
-    msg.className = 'msg bot';
-    msg.innerHTML = `<div class="bot-avatar">🌿</div><div class="msg-bubble">${replyText}</div><div class="msg-time">${time}</div>`;
-    container.appendChild(msg);
-    container.scrollTop = container.scrollHeight;
-  }, 1500);
-}
-
-// ==================== LOGOUT FUNCTION ====================
+// ==================== LOGOUT ====================
 function logout() {
   localStorage.removeItem('userEmail');
   localStorage.removeItem('userRole');
   localStorage.removeItem('userName');
   window.location.href = 'login.html';
 }
+
+// ==================== INITIAL RENDER ====================
+renderDashboard();
+
+// Tampilkan screen sesuai role
+document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+if (userRole === 'F') document.getElementById('dashboard-screen').classList.add('active');
+else if (userRole === 'D') document.getElementById('distributor-screen').classList.add('active');
+else if (userRole === 'C') document.getElementById('consumer-screen').classList.add('active');
+
+// Update bottom nav visibility
+document.getElementById('bottomNav').style.display = 'flex';
 </script>
 </body>
 </html>
