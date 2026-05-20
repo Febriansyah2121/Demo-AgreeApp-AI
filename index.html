@@ -35,19 +35,7 @@
             --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             --shadow-lg: 0 8px 30px rgba(27, 94, 32, 0.12);
             --radius: 16px;
-            --radius-sm: 10px;
             --radius-btn: 99px;
-        }
-
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         .container {
@@ -76,12 +64,6 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
         }
 
         .grid-3 {
@@ -122,7 +104,6 @@
             transition: all 0.2s;
             border: none;
             cursor: pointer;
-            font-family: 'Inter', sans-serif;
         }
 
         .btn-primary:hover {
@@ -180,10 +161,6 @@
             font-size: 22px;
         }
 
-        .logo-icon span {
-            color: white;
-        }
-
         .logo-text {
             font-size: 20px;
             font-weight: 800;
@@ -229,23 +206,6 @@
             opacity: 0.9;
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .hero .btn-outline {
-            border-color: white;
-            color: white;
-        }
-
-        .hero .btn-outline:hover {
-            background: white;
-            color: var(--green-dark);
-        }
-
         .stats-section {
             background: white;
             padding: 40px 0;
@@ -262,12 +222,6 @@
             font-size: 36px;
             font-weight: 800;
             color: var(--green-dark);
-        }
-
-        .stat-label {
-            color: var(--text-gray);
-            font-size: 14px;
-            margin-top: 8px;
         }
 
         .feature-icon {
@@ -287,51 +241,6 @@
             font-weight: 700;
             margin-bottom: 12px;
             color: var(--text-dark);
-        }
-
-        .feature-desc {
-            color: var(--text-gray);
-            line-height: 1.6;
-        }
-
-        .step-container {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-
-        .step {
-            flex: 1;
-            text-align: center;
-            min-width: 150px;
-        }
-
-        .step-number {
-            width: 48px;
-            height: 48px;
-            background: var(--green-dark);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 20px;
-            margin: 0 auto 16px;
-        }
-
-        .impact-card {
-            background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
-            color: white;
-            border-radius: var(--radius);
-            padding: 40px;
-            text-align: center;
-        }
-
-        .impact-number {
-            font-size: 48px;
-            font-weight: 800;
         }
 
         .footer {
@@ -356,39 +265,83 @@
             opacity: 0.7;
         }
 
-        .compare-table {
-            width: 100%;
-            border-collapse: collapse;
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* About Page Styles */
+        .about-section {
             background: white;
             border-radius: var(--radius);
-            overflow: hidden;
+            padding: 48px;
+            margin: 40px 0;
             box-shadow: var(--shadow);
         }
 
-        .compare-table th,
-        .compare-table td {
-            padding: 16px;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
         }
 
-        .compare-table th {
-            background: var(--green-dark);
-            color: white;
-            font-weight: 600;
+        .about-text h3 {
+            font-size: 24px;
+            color: var(--green-dark);
+            margin-bottom: 20px;
         }
 
-        .check {
-            color: var(--green-mid);
+        .about-text p {
+            color: var(--text-gray);
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .team-card {
+            text-align: center;
+            padding: 24px;
+        }
+
+        .team-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--green-pale);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin: 0 auto 16px;
+        }
+
+        .team-name {
+            font-size: 18px;
             font-weight: 700;
+            color: var(--text-dark);
         }
 
-        .cross {
-            color: #E53935;
+        .team-role {
+            font-size: 13px;
+            color: var(--text-gray);
+            margin-top: 4px;
         }
 
         @media (max-width: 768px) {
-            .grid-2, .grid-3, .grid-4, .stats-grid, .footer-content {
+            .grid-3, .grid-4, .stats-grid, .footer-content, .about-grid, .team-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
@@ -404,96 +357,133 @@
             .nav-links {
                 justify-content: center;
             }
+            .about-section {
+                padding: 24px;
+            }
+        }
+
+        /* Page section visibility */
+        .page-section {
+            display: none;
+        }
+        .page-section.active {
+            display: block;
         }
     </style>
 </head>
 <body>
 
+    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="logo">
             <div class="logo-icon"><span>🌿</span></div>
             <span class="logo-text">AgreeApp AI</span>
         </div>
         <div class="nav-links">
-            <a href="#home">Home</a>
+            <a onclick="showPage('home')">Home</a>
+            <a onclick="showPage('about')">About</a>
             <a href="#features">Features</a>
-            <a href="#impact">Impact</a>
-            <a href="#about">About</a>
             <a href="login.html" class="btn-outline" style="border-color: var(--green-dark);">Login</a>
-            <a href="login.html" class="btn-outline" style="border-color: var(--green-dark); padding: 8px 20px;">Try Demo →</a>
+            <a href="login.html" class="btn-primary" style="padding: 8px 20px;">Try Demo →</a>
         </div>
     </nav>
 
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>Smart Agriculture Platform<br>for Indonesian Farmers</h1>
-            <p>AgreeApp AI connects farmers, distributors, and consumers in one transparent, efficient, and inclusive digital ecosystem.</p>
-            <div class="hero-buttons">
-                <a href="login.html" class="btn-primary">Try Demo →</a>
-                <a href="#features" class="btn-outline">Explore Features</a>
+    <!-- HOME PAGE SECTION -->
+    <div id="home-page" class="page-section active">
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container">
+                <h1>Smart Agriculture Platform<br>for Indonesian Farmers</h1>
+                <p>AgreeApp AI connects farmers, distributors, and consumers in one transparent, efficient, and inclusive digital ecosystem.</p>
+                <div class="hero-buttons">
+                    <a href="login.html" class="btn-primary">Try Demo →</a>
+                    <a onclick="showPage('about')" class="btn-outline" style="border-color: white; color: white;">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATISTICS -->
+        <div class="stats-section fade-up">
+            <div class="container">
+                <div class="stats-grid">
+                    <div><div class="stat-number">48M+</div><div class="stat-label" style="color: var(--text-gray);">Farmers Not Connected</div></div>
+                    <div><div class="stat-number">1.3B</div><div class="stat-label" style="color: var(--text-gray);">Tons Food Waste/Year</div></div>
+                    <div><div class="stat-number">7-10x</div><div class="stat-label" style="color: var(--text-gray);">Price Markup</div></div>
+                    <div><div class="stat-number">&lt;20%</div><div class="stat-label" style="color: var(--text-gray);">Farmers Get Fair Price</div></div>
+                </div>
             </div>
         </div>
-    </section>
 
-    <div class="stats-section fade-up">
+        <!-- FEATURES -->
+        <section id="features" class="section">
+            <div class="container">
+                <h2 class="section-title fade-up">Four Powerful Features</h2>
+                <p class="section-subtitle fade-up">Powered by Artificial Intelligence for end-to-end agricultural transparency</p>
+                <div class="grid-4">
+                    <div class="card fade-up"><div class="feature-icon">🌾</div><h3 class="feature-title">AgriVision</h3><p class="feature-desc" style="color: var(--text-gray);">Real-time weather forecast and soil fertility monitoring. Get recommendations on when to plant, fertilize, and harvest.</p></div>
+                    <div class="card fade-up"><div class="feature-icon">🚚</div><h3 class="feature-title">DistroTrack</h3><p class="feature-desc" style="color: var(--text-gray);">Track shipments in real-time. Know exactly where your products are, from farm to consumer.</p></div>
+                    <div class="card fade-up"><div class="feature-icon">📦</div><h3 class="feature-title">StockSense</h3><p class="feature-desc" style="color: var(--text-gray);">AI-powered stock monitoring and prediction. Get early warnings when stock runs low.</p></div>
+                    <div class="card fade-up"><div class="feature-icon">🔍</div><h3 class="feature-title">QR Traceability</h3><p class="feature-desc" style="color: var(--text-gray);">Scan QR code to see product origin, farmer info, harvest date, and complete supply chain history.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IMPACT -->
+        <section class="section" style="background: white;">
+            <div class="container">
+                <h2 class="section-title fade-up">Measurable Impact</h2>
+                <p class="section-subtitle fade-up">Our targets for the first year of implementation</p>
+                <div class="grid-3">
+                    <div class="card fade-up" style="text-align: center; background: linear-gradient(135deg, var(--green-dark), var(--green-mid)); color: white;"><div style="font-size: 48px; font-weight: 800;">50,000+</div><div>Farmers Connected</div></div>
+                    <div class="card fade-up" style="text-align: center; background: linear-gradient(135deg, var(--orange), #F57C00); color: white;"><div style="font-size: 48px; font-weight: 800;">-20%</div><div>Food Waste Reduction</div></div>
+                    <div class="card fade-up" style="text-align: center; background: linear-gradient(135deg, var(--green-dark), var(--green-mid)); color: white;"><div style="font-size: 48px; font-weight: 800;">+30%</div><div>Farmer Income Increase</div></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE SECTION -->
+    <div id="about-page" class="page-section">
         <div class="container">
-            <div class="stats-grid">
-                <div><div class="stat-number">48M+</div><div class="stat-label">Farmers Not Connected</div></div>
-                <div><div class="stat-number">1.3B</div><div class="stat-label">Tons Food Waste/Year</div></div>
-                <div><div class="stat-number">7-10x</div><div class="stat-label">Price Markup</div></div>
-                <div><div class="stat-number">&lt;20%</div><div class="stat-label">Farmers Get Fair Price</div></div>
+            <div class="about-section">
+                <h2 style="font-size: 32px; color: var(--green-dark); margin-bottom: 16px; text-align: center;">About AgreeApp AI</h2>
+                <p style="text-align: center; color: var(--text-gray); margin-bottom: 48px;">Smart Agriculture Platform for Monitoring, Distribution, and Food Transparency</p>
+                
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h3>🌱 Our Mission</h3>
+                        <p>To empower Indonesian farmers with digital technology, create transparent food supply chains, and reduce food waste through artificial intelligence.</p>
+                        <h3>🎯 Our Vision</h3>
+                        <p>Become the leading smart agriculture platform in Southeast Asia, connecting millions of farmers to fair markets and consumers to trusted food products.</p>
+                    </div>
+                    <div class="about-text">
+                        <h3>💡 What We Do</h3>
+                        <p>AgreeApp AI provides AI-powered solutions for weather monitoring, distribution tracking, stock management, and product traceability. From farm to fork, we've got you covered.</p>
+                        <h3>🌍 Our Values</h3>
+                        <p>Transparency, Innovation, Sustainability, and Inclusivity. We believe technology should be accessible to all farmers, regardless of their digital literacy.</p>
+                    </div>
+                </div>
+
+                <h3 style="font-size: 24px; color: var(--green-dark); text-align: center; margin: 48px 0 24px;">👥 Our Team</h3>
+                <div class="team-grid">
+                    <div class="card team-card"><div class="team-icon">👨‍💻</div><div class="team-name">Febriansyah</div><div class="team-role">Lead Developer & UI/UX</div></div>
+                    <div class="card team-card"><div class="team-icon">👩‍🌾</div><div class="team-name">Tim Agritech</div><div class="team-role">Agriculture Specialist</div></div>
+                    <div class="card team-card"><div class="team-icon">📊</div><div class="team-name">Tim Data</div><div class="team-role">AI & Data Analyst</div></div>
+                </div>
+
+                <div style="text-align: center; margin-top: 48px;">
+                    <a href="login.html" class="btn-primary" style="padding: 14px 32px; font-size: 16px;">Try Demo Now →</a>
+                </div>
             </div>
         </div>
     </div>
 
-    <section id="features" class="section">
-        <div class="container">
-            <h2 class="section-title fade-up">Four Powerful Features</h2>
-            <p class="section-subtitle fade-up">Powered by Artificial Intelligence for end-to-end agricultural transparency</p>
-            <div class="grid-4">
-                <div class="card fade-up"><div class="feature-icon">🌾</div><h3 class="feature-title">AgriVision</h3><p class="feature-desc">Real-time weather forecast and soil fertility monitoring. Get recommendations on when to plant, fertilize, and harvest.</p></div>
-                <div class="card fade-up"><div class="feature-icon">🚚</div><h3 class="feature-title">DistroTrack</h3><p class="feature-desc">Track shipments in real-time. Know exactly where your products are, from farm to consumer.</p></div>
-                <div class="card fade-up"><div class="feature-icon">📦</div><h3 class="feature-title">StockSense</h3><p class="feature-desc">AI-powered stock monitoring and prediction. Get early warnings when stock runs low.</p></div>
-                <div class="card fade-up"><div class="feature-icon">🔍</div><h3 class="feature-title">QR Traceability</h3><p class="feature-desc">Scan QR code to see product origin, farmer info, harvest date, and complete supply chain history.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="impact" class="section">
-        <div class="container">
-            <h2 class="section-title fade-up">Measurable Impact</h2>
-            <p class="section-subtitle fade-up">Our targets for the first year of implementation</p>
-            <div class="grid-3">
-                <div class="impact-card fade-up"><div class="impact-number">50,000+</div><div class="impact-label">Farmers Connected</div></div>
-                <div class="impact-card fade-up" style="background: linear-gradient(135deg, var(--orange), #F57C00);"><div class="impact-number">-20%</div><div class="impact-label">Food Waste Reduction</div></div>
-                <div class="impact-card fade-up"><div class="impact-number">+30%</div><div class="impact-label">Farmer Income Increase</div></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" style="background: white;">
-        <div class="container">
-            <h2 class="section-title fade-up">Feature Comparison</h2>
-            <div class="fade-up">
-                <table class="compare-table">
-                    <thead><tr><th>Feature</th><th>AgreeApp AI</th><th>Other Platforms</th></tr></thead>
-                    <tbody>
-                        <tr><td>AI Monitoring</td><td class="check">✅ Yes</td><td class="cross">❌ Limited</td></tr>
-                        <tr><td>Open Data Integration</td><td class="check">✅ Yes (BMKG, BPS)</td><td class="cross">❌ No</td></tr>
-                        <tr><td>QR Traceability</td><td class="check">✅ Full transparency</td><td class="cross">❌ Not integrated</td></tr>
-                        <tr><td>Distribution Tracking</td><td class="check">✅ Real-time</td><td class="cross">❌ Limited</td></tr>
-                        <tr><td>AI Chatbot Assistant</td><td class="check">✅ AgriBot 24/7</td><td class="cross">❌ No</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div><div class="logo" style="margin-bottom: 16px;"><div class="logo-icon"><span>🌿</span></div><span style="font-weight: 700;">AgreeApp AI</span></div><p style="opacity: 0.7; font-size: 14px;">Smart Agriculture Platform for Monitoring, Distribution, and Food Transparency</p></div>
-                <div><h4 style="margin-bottom: 16px;">Quick Links</h4><a href="#home" style="display: block; color: rgba(255,255,255,0.7); text-decoration: none; margin-bottom: 8px;">Home</a><a href="#features" style="display: block; color: rgba(255,255,255,0.7); text-decoration: none; margin-bottom: 8px;">Features</a><a href="#impact" style="display: block; color: rgba(255,255,255,0.7); text-decoration: none; margin-bottom: 8px;">Impact</a><a href="login.html" style="display: block; color: rgba(255,255,255,0.7); text-decoration: none; margin-bottom: 8px;">Demo</a></div>
+                <div><h4 style="margin-bottom: 16px;">Quick Links</h4><a onclick="showPage('home')" style="display: block; color: rgba(255,255,255,0.7); text-decoration: none; margin-bottom: 8px; cursor: pointer;">Home</a><a onclick="showPage('about')" style="display: block; color: rgba(255,255,255,0.7); text-decoration: none; margin-bottom: 8px; cursor: pointer;">About</a><a href="#features" style="display: block; color: rgba(255,255,255,0.7); text-decoration: none; margin-bottom: 8px;">Features</a><a href="login.html" style="display: block; color: rgba(255,255,255,0.7); text-decoration: none; margin-bottom: 8px;">Demo</a></div>
                 <div><h4 style="margin-bottom: 16px;">Data Sources</h4><p style="opacity: 0.7;">BMKG (Weather Data)<br>BPS (Agricultural Statistics)<br>Ministry of Agriculture</p></div>
             </div>
             <div class="footer-bottom"><p>© 2025 AgreeApp AI. From Farm to Fork, We've Got You Covered. | Proto-Athlon 2026</p></div>
@@ -501,14 +491,43 @@
     </footer>
 
     <script>
+        // Scroll animation observer
         const fadeElements = document.querySelectorAll('.fade-up');
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
         }, { threshold: 0.1 });
         fadeElements.forEach(el => observer.observe(el));
         setTimeout(() => {
             fadeElements.forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible'); });
         }, 100);
+
+        // Page navigation function
+        function showPage(pageName) {
+            // Hide all pages
+            document.getElementById('home-page').classList.remove('active');
+            document.getElementById('about-page').classList.remove('active');
+            
+            // Show selected page
+            document.getElementById(pageName + '-page').classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Smooth scroll for Features link
+        document.querySelectorAll('a[href="#features"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                showPage('home');
+                setTimeout(() => {
+                    document.getElementById('features').scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            });
+        });
     </script>
 </body>
 </html>
